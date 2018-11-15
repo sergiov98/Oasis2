@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+  </head>
+  <body>
+    <div class="nav-bar">
+      <a href="./index.html"><b>Oasis</b></a>
+    </div>
+    <script id="template" type="text/x-handlebars-template">
+      <div>
+        <h1>Thank you for your purchase!</h1>
+        <span>
+          Your contact info:
+          <br />
+          {{email}}
+          <br />
+          {{phone}}
+          <br />
+          <br />
+          Your payment Info:
+          <br />
+          {{card}}
+          <br />
+          {{exp}}
+          <br />
+          {{ccv}}
+        </span>
+      </div>
+    </script>
+    <div id="details">
+
+    </div>
+    <div>
+      <h2>Purchase another location?</h2>
+    </div>
+    <button onclick="window.location.href='index.html'">Go Back</button>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/purchased.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v4.0.11.js"></script>
+  </body>
+</html>

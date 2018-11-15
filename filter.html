@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Give us a little more info</title>
+    <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+  </head>
+  <body>
+    <!-- Nav Bar -->
+    <div class="nav-bar" style="text-align:left">
+      <a href="./index.html"><b>Oasis</b></a>
+    </div>
+
+    <div>
+      <form action="./search.html" id="filters" >
+        <ul>
+          <li>
+            Location: <input id="location" name="location" type="text" required placeholder="San Diego" value=""/>
+          </li>
+          <li>
+            Date: <input id="date" name ="date" type="datetime" required placeholder="mm/dd/yyyy" value=""  />
+          </li>
+          <li>
+            Duration: <input id="hours" name="hours" type="number" min="1" max="24" placeholder="5" value="" />
+          </li>
+          <li>
+            Number of Guests: <input id="guest" name="guest" type="text" placeholder="10" value="" />
+          </li>
+          <li>
+            <input id="indoor" name="indoor" type="checkbox" value="indoor">Indoor
+            <input id="outdoor" name="outdoor" type="checkbox" value="outdoor">Outdoor
+          </li>
+          <li>
+            Prince Range from: $<input id="minCost" name="min" type="number" min="100"  placeholder="100"  value="" /> to:
+            $<input id="maxCost" name="max" type="number" min="100"  placeholder="1000" value="" />
+
+          </li>
+        </ul>
+        <h4>By Clicking this you are agreeing you are 21 or older</h4>
+        <input type="submit" value="submit" />
+
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v4.0.11.js"></script>
+  </body>
+</html>

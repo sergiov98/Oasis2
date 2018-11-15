@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorites</title>
+
+  <!-- Linking to css stylesheet -->
+  <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+</head>
+<body>
+
+  <!-- Nav Bar -->
+  <div class="nav-bar">
+    <a href="./index.html"><b>Oasis</b></a>
+    <button id="loginbtn"
+            onclick="document.getElementById('login').style.display='block'"
+            class="loginbtn">Log in</button>
+
+    <!-- The Log-in Modal -->
+    <div id="login" class="modal">
+      <span onclick="document.getElementById('login').style.display='none'"
+            class="close"
+            title="Close Modal">&times;</span>
+
+      <!-- The actual content of the log in -->
+      <form class="modal-content">
+        <div class="container">
+          <h1>Login</h1>
+          <p>Welcome Back</p>
+          <hr>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <div class="clearfix">
+            <button type="button"
+                    onclick="document.getElementById('login').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+            <button type="submit" onclick="loggedIn()" class="agreebtn">Login</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <button id="signupbtn"
+            onclick="document.getElementById('sign-up').style.display='block'"
+            class="signupbtn">Sign Up</button>
+
+    <!-- The sign-up modal -->
+    <div id="sign-up" class="modal">
+      <span onclick="document.getElementById('sign-up').style.display='none'"
+            class="close"
+            title="Close Modal">&times;</span>
+
+      <!-- The actual content -->
+      <form class="modal-content">
+        <div class="container">
+          <h1>Sign Up</h1>
+          <p>Create your account.</p>
+          <hr>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+          <div class="clearfix">
+            <button type="button"
+                    onclick="document.getElementById('sign-up').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+            <button type="submit" onclick="loggedIn()" class="agreebtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <button id="logoutbtn"
+            style="display: none"
+            onclick="loggedOut()"
+            class="signupbtn">Log Out</button>
+  </div>
+
+
+  <!-- The div for the activities -->
+  <div class="activities">
+    <div style="padding-left: 3.5%">
+      <h1>Trending Locations</h1>
+    </div>
+    <script id="favorites-template" type="text/x-handlebars-template">
+      <div class="event">
+        <a href="#" id={{id}} onclick="getDetails(this.id)">
+          <img class="event-image"  src="./images/{{image}}.jpg" />
+        </a>
+        <div class="info">
+          <h3><a id={{id}} href="#" onclick="getDetails(this.id)">{{name}}</a></h3>
+          <p>
+            ${{price}}<br />
+            {{location}}
+          </p>
+          <div>
+            <button id="{{id}}Fav" onclick="addtoFavorite(this.id)">Favorite</button>
+            <button id={{id}} onclick="getDetails(this.id)">More Details</button>
+          </div>
+        </div>
+      </div>
+    </script>
+    <div id="first-row" class="event-holder" style="padding-top:2%">
+
+    </div>
+    <div id="second-row" style="padding-bottom:4%">
+
+    </div>
+  </div>
+
+
+  <!-- Connecting the js files -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/favorites.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/handlebars-v4.0.11.js"></script>
+</body>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+  </head>
+  <body>
+    <script id="template" type="text/x-handlebars-template">
+      <div class="event">
+          <img class="event-image" src="./images/{{image}}.jpg" />
+          <div class="info" style="width:90%">
+            <h3><a href="./checkout.html">{{name}}</a></h3>
+            <p>
+                $ {{price}}
+                <br />
+                {{location}}
+            </p>
+          </div>
+        </div>
+      <div class="event-info" style="width:25%">
+        <span>
+          Date: {{date}}
+          <br />
+          Hours: {{hours}}
+          <br />
+          ${{price}} an hour
+          <br />
+
+          {{service-title}}
+          <br />
+
+          {{service1}}
+          <br />
+
+          {{service2}}
+          <br />
+
+          {{service3}}
+          <br />
+
+          {{service4}}
+
+          <br />
+          Venue: ${{venue}}
+          <br />
+          Total: ${{total}}
+
+        </span>
+      </div>
+    </script>
+    <div id="details" class="checkout" style="display:flex">
+      <div class="checkout-info">
+        <div>
+        <h3 style="margin:0px">Begin Checkout</h3>
+        </div>
+        <form action="purchased.html" method="get">
+          <ul>
+            <li>
+              <input id="email" type="text" placeholder="Email" size="25px" />
+            </li>
+            <li>
+              <input id="phone" type="text" placeholder="Phone Number" />
+            </li>
+          </ul>
+          <div>
+            <h2 style="margin:0px">Payment</h2>
+          </div>
+          <ul>
+            <li>
+              <input id="card" type="text" placeholder="Card Number" />
+            </li>
+            <li>
+              <input id="exp" type="datetime" placeholder="Expiration Date" />
+            </li>
+            <li>
+              <input id="ccv" type="text" placeholder="cvv" />
+            </li>
+
+          </ul>
+          <button onClick="purchase()">Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+    <button onclick="window.location.href='details.html'">Go back</button>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v4.0.11.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorites</title>
+
+  <!-- Linking to css stylesheet -->
+  <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+</head>
+<body>
+
+  <!-- Nav Bar -->
+  <div class="nav-bar">
+    <a href="./index.html"><b>Oasis</b></a>
+    <button id="logoutbtn"
+            style="display: none"
+            onclick="loggedOut()"
+            class="signupbtn">Log Out</button>
+  </div>
+  <div class="activities">
+    <div style="padding-left: 3.5%">
+      <h1>Some of your locations</h1>
+    </div>
+    <div id="NoFavs" style="display:none">
+      <h2>You have no favorites! Go add some</h2>
+    </div>
+    <script id="favorites-template" type="text/x-handlebars-template">
+      <div class="event">
+        <a href="#" id={{id}} onclick="getDetails(this.id)">
+          <img class="event-image"  src="./images/{{image}}.jpg" />
+        </a>
+        <div class="info">
+          <h3><a id={{id}} href="#" onclick="getDetails(this.id)">{{name}}</a></h3>
+          <p>
+            ${{price}}<br />
+            {{location}}
+          </p>
+          <div>
+            <button id="{{id}}Fav" onclick="addtoFavorite(this.id)">Favorite</button>
+            <button id={{id}} onclick="getDetails(this.id)">More Details</button>
+          </div>
+        </div>
+      </div>
+    </script>
+    <div id="first-row" class="event-holder" style="padding-top:2%">
+
+    </div>
+    <div id="second-row" style="padding-bottom:4%">
+
+    </div>
+
+    <!-- Connecting the js files -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/myFavorites.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v4.0.11.js"></script>
+  </div>

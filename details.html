@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Details</title>
+  <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+  <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <script id="details-template" type="text/x-handlebars-template">
+    <div style="display:inherit">
+      <div class="event">
+        <img class="event-image" src="./images/{{image}}.jpg" />
+        <div class="info">
+          <h3>{{name}}</h3>
+          <p>
+              $ {{price}}
+              <br />
+              {{location}}
+          </p>
+        </div>
+      </div>
+      <div class="event-info">
+        <span>
+          Enjoy {{name}} in the beautiful {{location}}
+          <br />
+          {{description}}
+          <br />
+          Max Capacity - {{capacity}}
+          <br />
+          <br />
+          Please contact Jim Halbert with any quetions!
+          <br />
+          jimhalbert@ucsd.edu
+          (925) 283-2783
+        </span>
+      </div>
+    </div>
+  </script>
+  <div id="details" style="display:flex">
+
+  </div>
+
+  <div id="moreDetails" >
+    <div id="reviews" class="modal">
+      <span onclick="document.getElementById('reviews').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content">
+        <div class="container">
+          <h1>Reviews</h1>
+          <span id="0-modal" class="fa fa-star"></span>
+          <span id="1-modal" class="fa fa-star"></span>
+          <span id="2-modal"class="fa fa-star"></span>
+          <span id="3-modal"class="fa fa-star"></span>
+          <span id="4-modal"class="fa fa-star"></span>
+          <h3>Really hard to find someplace to sit</h3>
+          <div id="myReview" style="display:none">
+            <span id="0-review" class="fa fa-star"></span>
+            <span id="1-review" class="fa fa-star"></span>
+            <span id="2-review"class="fa fa-star"></span>
+            <span id="3-review"class="fa fa-star"></span>
+            <span id="4-review"class="fa fa-star"></span>
+            <h3 id="myReviewh3"></h3>
+          </div>
+          <br />
+          Write your review here!
+          <input id="reviewStars" type="number" value="0" /> How many stars?
+          <input id="reviewText" type="text" style="height:40px" value=""/>
+          <button onclick="submitted()">Submit a review</button>
+        </div>
+      </form>
+    </div>
+    <div id="reviews">
+      <span id="0" class="fa fa-star"></span>
+      <span id="1" class="fa fa-star"></span>
+      <span id="2"class="fa fa-star"></span>
+      <span id="3"class="fa fa-star"></span>
+      <span id="4"class="fa fa-star"></span>
+      <button onclick="document.getElementById('reviews').style.display='block'">Reviews</button>
+    </div>
+    <div id="catering-modal" class="modal">
+      <span onclick="document.getElementById('catering-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content">
+        <div class="container">
+          <h1>Catering</h1>
+          <h3 id="cateringPrice">$200</h3>
+          <button id="catering" onclick="added(this.id)">Add to cart</button>
+        </div>
+      </form>
+    </div>
+    <div id="transportation-modal" class="modal">
+      <span onclick="document.getElementById('transportation-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content">
+        <div class="container">
+          <h1>Transportation</h1>
+          <h3 id="transportationPrice">$250</h3>
+          <button id="transportation" onclick="added(this.id)">Add to cart</button>
+        </div>
+      </form>
+    </div>
+    <div id="entertainment-modal" class="modal">
+      <span onclick="document.getElementById('entertainment-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content">
+        <div class="container">
+          <h1>Entertainment</h1>
+          <h3 id="entertainmentPrice">$50</h3>
+          <button id="entertainment"  onclick="added(this.id)">Add to cart</button>
+        </div>
+      </form>
+    </div>
+    <div id="planner-modal" class="modal">
+      <span onclick="document.getElementById('planner-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content">
+        <div class="container">
+          <h1>Planner</h1>
+          <h3 id="plannerPrice">$100</h3>
+          <button id="planner" onclick="added(this.id)">Add to cart</button>
+        </div>
+      </form>
+    </div>
+    <div id="service-holder" class="service">
+      <h3>Add these additional services to your events. Click more for details</h3>
+
+      <div id="service-column1">
+        <button id="cateringBtn" onclick="document.getElementById('catering-modal').style.display='block'">Catering</button>
+        <br />
+        <button id="transportationBtn" onclick="document.getElementById('transportation-modal').style.display='block'">Transportation</button>
+      </div>
+      <div id="service-column2">
+        <button id="entertainmentBtn" onclick="document.getElementById('entertainment-modal').style.display='block'">Entertainment</button>
+        <br />
+        <button id="plannerBtn" onclick="document.getElementById('planner-modal').style.display='block'">Event Planner</button>
+      </div>
+
+      <div id="return-buttons" style="margin-left:20%">
+        <button onclick="window.location.href='search.html'">Return to Venues</button>
+        <button id="checkout" onclick="window.location.href='checkout.html'">Proceed to checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/details.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/handlebars-v4.0.11.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Results</title>
+  <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+</head>
+<body>
+  <div class="nav-bar" style="align:left">
+    <a href="./index.html"><b>Oasis</b></a>
+    <a href="./filter.html">Adjust Filters</a>
+  </div>
+  <div class="intro">
+    <h3>Book These Spaces for your event!</h3>
+  </div>
+  <hr />
+
+  <script id="results-template" type="text/x-handlebars-template">
+    <div class="event">
+      <a href="#" id={{id}} onclick="getDetails(this.id)">
+        <img class="event-image"  src="./images/{{image}}.jpg" />
+      </a>
+      <div class="info">
+        <h3><a id={{id}} href="#" onclick="getDetails(this.id)">{{name}}</a></h3>
+        <p>
+          ${{price}}<br />
+          {{location}}
+        </p>
+        <div>
+          <button id={{id}}Fav onclick="addtoFavorite(this.id)">Favorite</button>
+          <button id={{id}} onclick="getDetails(this.id)">More Details</button>
+        </div>
+      </div>
+    </div>
+  </script>
+  <div id="first-row" class="event-holder">
+
+  </div>
+  <div id="second-row" class="event-holder">
+
+  </div>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/search.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/handlebars-v4.0.11.js"></script>
+</body>

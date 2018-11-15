@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Oasis</title>
+
+  <!-- Linking to css stylesheet -->
+  <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+</head>
+<body>
+
+  <!-- Nav Bar -->
+  <div class="nav-bar">
+    <a href="./index.html"><b>Oasis</b></a>
+    <a href="#help">Help</a>
+    <a id="favorites" href="./favorites.html">Favorites</a>
+    <a href="./host.html">List Your Space</a>
+    <button id="loginbtn"
+            onclick="document.getElementById('login').style.display='block'"
+            class="loginbtn">Log in</button>
+
+    <!-- The Log-in Modal -->
+    <div id="login" class="modal">
+      <span onclick="document.getElementById('login').style.display='none'"
+            class="close"
+            title="Close Modal">&times;</span>
+
+      <!-- The actual content of the log in -->
+      <form class="modal-content">
+        <div class="container">
+          <h1>Login</h1>
+          <p>Welcome Back</p>
+          <hr>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <div class="clearfix">
+            <button type="button"
+                    onclick="document.getElementById('login').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+            <button type="submit" onclick="loggedIn()" class="agreebtn">Login</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <button id="signupbtn"
+            onclick="document.getElementById('sign-up').style.display='block'"
+            class="signupbtn">Sign Up</button>
+
+    <!-- The sign-up modal -->
+    <div id="sign-up" class="modal">
+      <span onclick="document.getElementById('sign-up').style.display='none'"
+            class="close"
+            title="Close Modal">&times;</span>
+
+      <!-- The actual content -->
+      <form class="modal-content">
+        <div class="container">
+          <h1>Sign Up</h1>
+          <p>Create your account.</p>
+          <hr>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+          <div class="clearfix">
+            <button type="button"
+                    onclick="document.getElementById('sign-up').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+            <button type="submit" onclick="loggedIn()" class="agreebtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <button id="logoutbtn"
+            style="display: none"
+            onclick="loggedOut()"
+            class="signupbtn">Log Out</button>
+  </div>
+
+  <!-- The search bar might be unnecessary -->
+  <div class="search" id="search-bar">
+    <form action="filter.html">
+      <input type="text"
+             placeholder="What event are you planning?"
+             size="25px" />
+      <input type="submit" />
+    </form>
+  </div>
+
+  <!-- The div for the activities -->
+  <div class="activities">
+    <div style="padding-left: 3.5%">
+      <h1>Look For Spaces</h1>
+    </div>
+    <script id="activities-template" type="text/x-handlebars-template">
+      <a class="element" href="./filter.html">
+        <div class="caption">
+          {{caption}}
+        </div>
+        <img class="act-image" src="{{actImage}}" />
+      </a>
+    </script>
+    <div class="row" id="first-row" style="padding-top:2%">
+
+    </div>
+    <div class="row" id="second-row" style="padding-bottom:4%">
+
+    </div>
+  </div>
+
+  <!-- The help div -->
+  <div id="help" style="padding-left: 3.5%">
+    <h1>How it Works</h1>
+  </div>
+  <div class="card-wrapper">
+    <div class="card">
+      <img class="act-image" src="./images/Magnifying.png" width="31%" />
+      <p>
+        Look for a space
+      </p>
+    </div>
+    <div class="card">
+      <img class="act-image" src="./images/Message.png" width="31%" />
+      <p>
+        Talk to the Host
+      </p>
+    </div>
+    <div class="card">
+      <img class="act-image" src="./images/Calendar.png" width="31%" />
+      <p>
+        Get ready for a party!
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Connecting the js files -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/handlebars-v4.0.11.js"></script>
+</body>
