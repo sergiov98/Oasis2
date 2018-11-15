@@ -36,9 +36,9 @@ if(localStorage.getItem('availableRooms') == null){
   localStorage.setItem('availableRooms',JSON.stringify(availableRooms));
 }
 
-var indexes = ['bridgeFav','alcatrazFav','pierFav','pcFav','ballroomFav',
-  'hyattFav','balboaFav','observatoryFav','gaslampFav','waterfrontFav',
-  'libertyFav','piazzaFav'];
+var indexes = ['bridge','alcatraz','pier','pc','ballroom',
+  'hyatt','balboa','observatory','gaslamp','waterfront',
+  'liberty','piazza'];
 
 if(localStorage.getItem('indexes') == null){
   localStorage.setItem('indexes',JSON.stringify(indexes));
@@ -68,7 +68,7 @@ window.onbeforeunload = function () {
 /* This function waits until document is ready*/
 $(document).ready(function() {
   console.log('hello world');
-  favs = document.getElementById("favorites");
+  s = document.getElementById("orites");
 
 
   // compile the template
