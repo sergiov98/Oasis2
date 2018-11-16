@@ -29,7 +29,16 @@ var availableRooms = [
   'price':'800', 'location': 'San Diego', 'capacity':'400', 'id': 'liberty', 'stars':'5'},
   {'name': 'Piazza della Famiglia','image':'piazza',
   'description':'Little Italy provide space for music, festival, farmers market, you name it. Enjoy beautiful scenery at Piazza della Famiglia, in the heart of Little Italy.',
-  'price': '1,000', 'location': 'San Diego', 'capacity':'900', 'id':'piazza', 'stars':'4'}
+  'price': '1,000', 'location': 'San Diego', 'capacity':'900', 'id':'piazza', 'stars':'4'},
+  {'name': 'Marriott Beverly Hills', 'image': 'BH', 'price': '5,000',
+   'description': 'The Marriott in Beverly Hills is perfect for any event! Stunning ballrooms and a convenient location for all of your guests!',
+   'location': 'Los Angeles', 'capacity': '650', 'id': 'BH', 'stars': '5'},
+   {'name': 'Luxe City Center Hotel', 'image': 'Luxe', 'price': '3,000',
+   'description': 'Luxe City Center Hotel is conveniently located in the heart of Los Angeles and offers beautiful views of downtown LA. Not only can you guests enjoy the view, but also the pool, ballrooms, food, drinks, wifi, and much more.',
+    'location': 'Los Angeles', 'capacity': '700', 'id': 'Luxe', 'stars': '4'},
+    {'name': 'Standard Hotel Rooftop', 'image': 'Standard', 'price': '6,000',
+     'description': 'Enjoy watching the city sunset on the Rooftop at the Standard Hotel in the heart of Los Angeles! Guests can relax on the roof then head inside to ballrooms with beautiful stages, tables, food, bars, and company!',
+     'location': 'Los Angeles', 'capacity': '450', 'id': 'Standard', 'stars': '5'}
 
 ];
 
@@ -39,7 +48,7 @@ if(localStorage.getItem('availableRooms') == null){
 
 var indexes = ['bridge','alcatraz','pier','pc','ballroom',
   'hyatt','balboa','observatory','gaslamp','waterfront',
-  'liberty','piazza'];
+  'liberty','piazza','BH','Luxe','Standard'];
 
 if(localStorage.getItem('indexes') == null){
   localStorage.setItem('indexes',JSON.stringify(indexes));

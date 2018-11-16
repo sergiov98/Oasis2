@@ -59,8 +59,6 @@ function addtoFavorite(name){
   }
 }
 
-var index_details = ['bridge','alcatraz','pier','pc','ballroom','hyatt','balboa','observatory','gaslamp','waterfront',
-'liberty','piazza'];
 /* Function that will lead to details page */
 function getDetails(id){
   var index = indexes.indexOf(id);
