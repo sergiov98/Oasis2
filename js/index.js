@@ -36,7 +36,7 @@ var availableRooms = [
    {'name': 'Luxe City Center Hotel', 'image': 'Luxe', 'price': '3,000',
    'description': 'Luxe City Center Hotel is conveniently located in the heart of Los Angeles and offers beautiful views of downtown LA. Not only can you guests enjoy the view, but also the pool, ballrooms, food, drinks, wifi, and much more.',
     'location': 'Los Angeles', 'capacity': '700', 'id': 'Luxe', 'stars': '4'},
-    {'name': 'Standard Hotel Rooftop', 'image': 'Standard', 'price': '6,000',
+    {'name': 'Standard Hotel Rooftop', 'image': 'standard', 'price': '6,000',
      'description': 'Enjoy watching the city sunset on the Rooftop at the Standard Hotel in the heart of Los Angeles! Guests can relax on the roof then head inside to ballrooms with beautiful stages, tables, food, bars, and company!',
      'location': 'Los Angeles', 'capacity': '450', 'id': 'Standard', 'stars': '5'}
 
