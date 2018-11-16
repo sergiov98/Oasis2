@@ -30,6 +30,7 @@ var availableRooms = [
   {'name': 'Piazza della Famiglia','image':'piazza',
   'description':'Little Italy provide space for music, festival, farmers market, you name it. Enjoy beautiful scenery at Piazza della Famiglia, in the heart of Little Italy.',
   'price': '1000', 'location': 'San Diego', 'capacity':'900', 'id':'piazza', 'stars':'4'}
+
 ];
 
 if(localStorage.getItem('availableRooms') == null){
