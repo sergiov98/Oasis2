@@ -68,6 +68,7 @@ function getDetails(id){
 
 
   localStorage.setItem('detailLocation',JSON.stringify(loc));
+  localStorage.setItem('prev','./search.html');
   window.location.href='./details.html';
 }
 

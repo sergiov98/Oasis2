@@ -13,7 +13,7 @@ var availableRooms = [
     'capacity':'600', 'description':'This place is great',  'id':'hyatt', 'stars':'3'},
   {'name':'Balboa Park', 'image':'balboa','price':'600', 'location':'La Jolla',
     'capacity':'500', 'description':'This place is great',  'id':'balboa', 'stars':'4'},
-  {'name':'The Observatory North Park', 'location': 'San Diego', 'description':
+  {'name':'Observatory North Park', 'location': 'San Diego', 'description':
     'The venue includes a 40 x 24’ stage, full staged-size rehearsal room, production office with fully equipped projection booth, and parking lot is adjacent to the theatre.'
    ,'price':'700', 'image':'observatory',
     'capacity':'500', 'id':'observatory', 'stars':'5'},

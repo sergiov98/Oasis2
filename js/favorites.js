@@ -1,13 +1,13 @@
 var trendingRooms = [
   {'name':'Golden Gate Bridge', 'image':'GBridge', 'price':'2,000','location':'San Francisco',
-    'id':'bridge'},
+    'capacity':'980', 'description':'This place is great',  'id':'bridge', 'stars':'4'},
   {'name':'Alcatraz Island', 'image':'prison', 'price':'1,500','location':'San Francisco',
-     'id':'alcatraz'},
+    'capacity':'768', 'description':'This place is great',  'id':'alcatraz', 'stars':'4'},
   {'name':'Pier', 'image':'pier', 'price':'1,250','location':'San Francisco',
-   'id':'pier'},
-  {'name':'Price Center', 'image':'pricecenter', 'price':'400', 'location':'La Jolla',
-     'id':'pc'}
+    'capacity':'1,000', 'description':'This place is great',  'id':'pier', 'stars':'4'},
 ];
+
+
 var indexes = ['bridgeFav','alcatrazFav','pierFav','pcFav'];
 
 var favorites = JSON.parse(localStorage.getItem('favorites'));
@@ -99,5 +99,6 @@ function getDetails(id){
   var loc = trendingRooms[index];
 
   localStorage.setItem('detailLocation',JSON.stringify(loc));
+  localStorage.setItem('prev','./favorites.html');
   window.location.href='./details.html';
 }

@@ -1,6 +1,12 @@
 var result = JSON.parse(localStorage.getItem('detailLocation'));
 var extras = JSON.parse(localStorage.getItem('extras'));
 var reviews = JSON.parse(localStorage.getItem('reviews'))
+var prev = (localStorage.getItem('prev'));
+
+
+function goBack(variable){
+  window.location.href = prev;
+}
 
 window.onclick = function(event) {
     var modal = document.getElementById("planner-modal");
@@ -27,6 +33,7 @@ window.onclick = function(event) {
 
 function submitted(){
   alert("Thank you for your feedback");
+  localStorage.setItem('reviews',null);
   var text = $('#reviewText').val();
   var stars = $('#reviewStars').val();
 
@@ -45,8 +52,6 @@ function submitted(){
   }
   document.getElementById("myReviewh3").innerHTML = "text";
   document.getElementById('myReview').style.display = 'inline';
-
-
 }
 
 function added(id){

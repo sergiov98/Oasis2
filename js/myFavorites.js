@@ -98,5 +98,6 @@ function getDetails(id){
   var loc = favorites[index];
 
   localStorage.setItem('detailLocation',JSON.stringify(loc));
+  localStorage.setItem('prev','./myFavorites.html');
   window.location.href='./details.html';
 }

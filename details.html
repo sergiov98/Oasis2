@@ -65,9 +65,10 @@
             <h3 id="myReviewh3"></h3>
           </div>
           <br />
-          Write your review here!
-          <input id="reviewStars" type="number" value="0" /> How many stars?
-          <input id="reviewText" type="text" style="height:40px" value=""/>
+          <input id="reviewStars" type="number" placeholder="5" max="5" value="0" /> How many stars?
+          <br />
+          <input id="reviewText" placeholder="your review here"type="text" style="height:40px" value=""/>
+          <br />
           <button onclick="submitted()">Submit a review</button>
         </div>
       </form>
@@ -135,7 +136,7 @@
       </div>
 
       <div id="return-buttons" style="margin-left:20%">
-        <button onclick="window.location.href='search.html'">Return to Venues</button>
+        <button onclick="goBack()">Go back</button>
         <button id="checkout" onclick="window.location.href='checkout.html'">Proceed to checkout</button>
       </div>
     </div>

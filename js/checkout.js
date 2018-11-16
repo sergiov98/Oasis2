@@ -50,6 +50,7 @@ var result = {
 };
 
 function purchase(){
+  window.confirm("Are you sure you wish to purchase?");
   var email = $('#email').val();
   var phone = $('#phone').val();
   var card =$('#card').val();
