@@ -128,3 +128,26 @@ $(document).ready(function() {
     }
   }
 });
+
+
+var favs = document.getElementById('favorites');
+
+favs.onclick = function(){
+  if(localStorage.getItem("status") !== null){
+    window.location='./myFavorites.html';
+    return false;
+  }
+}
+function loggedIn(){
+  localStorage.setItem("status", "loggedIn");
+}
+function loggedOut(){
+  localStorage.removeItem("status");
+  window.location.href='./index.html';
+
+}
+if(localStorage.getItem("status") !== null){
+  document.getElementById('loginbtn').style.display='none';
+  document.getElementById('signupbtn').style.display='none';
+  document.getElementById('logoutbtn').style.display='inline-block';
+}

@@ -29,7 +29,7 @@ var availableRooms = [
   'price':'800', 'location': 'San Diego', 'capacity':'400', 'id': 'liberty', 'stars':'5'},
   {'name': 'Piazza della Famiglia','image':'piazza',
   'description':'Little Italy provide space for music, festival, farmers market, you name it. Enjoy beautiful scenery at Piazza della Famiglia, in the heart of Little Italy.',
-  'price': '1000', 'location': 'San Diego', 'capacity':'900', 'id':'piazza', 'stars':'4'}
+  'price': '1,000', 'location': 'San Diego', 'capacity':'900', 'id':'piazza', 'stars':'4'}
 
 ];
 
@@ -60,7 +60,6 @@ var secondActivities = [
   {'caption': 'Workshop', 'actImage':'./images/workshop.jpg'}
 ];
 
-var favs = document.getElementById('favorites');
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -90,6 +89,8 @@ $(document).ready(function() {
     parentDiv.append(curHtml);
   }
 });
+
+var favs = document.getElementById('favorites');
 
 favs.onclick = function(){
   if(localStorage.getItem("status") !== null){

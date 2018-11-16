@@ -22,21 +22,20 @@
 
     <!-- The Log-in Modal -->
     <div id="login" class="modal">
-      <span onclick="document.getElementById('login').style.display='none'"
-            class="close"
-            title="Close Modal">&times;</span>
+
 
       <!-- The actual content of the log in -->
       <form class="modal-content">
         <div class="container">
-          <h1>Login</h1>
+          <span onclick="document.getElementById('login').style.display='none'"
+                class="close"
+                title="Close Modal">&times;</span>
+          <h1>Oasis</h1>
           <p>Welcome Back</p>
           <hr>
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <b>Email </b><input class="input" type="text" placeholder="Enter Email" name="email" required>
+          <b>Password </b>
+          <input class="input" type="password" placeholder="Enter Password" name="psw" required>
 
           <div class="clearfix">
             <button type="button"
@@ -61,17 +60,18 @@
       <!-- The actual content -->
       <form class="modal-content">
         <div class="container">
-          <h1>Sign Up</h1>
-          <p>Create your account.</p>
+          <h1>Oasis</h1>
+          <p>Sign up</p>
           <hr>
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+          <b>Email</b>
+          <input class="input" type="text" placeholder="Enter Email" name="email" required>
 
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <br />
+          <b>Password</b>
+          <input class="input" type="password" placeholder="Enter Password" name="psw" required>
 
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          <b>Repeat Password</b>
+          <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
           <div class="clearfix">
             <button type="button"

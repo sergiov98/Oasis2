@@ -8,6 +8,77 @@
   <body>
     <div class="nav-bar" style="text-align:left">
       <a  href="./index.html"><b>Oasis</b></a>
+      <button id="loginbtn"
+              onclick="document.getElementById('login').style.display='block'"
+              class="loginbtn">Log in</button>
+
+      <!-- The Log-in Modal -->
+      <div id="login" class="modal">
+
+
+        <!-- The actual content of the log in -->
+        <form class="modal-content">
+          <div class="container">
+            <span onclick="document.getElementById('login').style.display='none'"
+                  class="close"
+                  title="Close Modal">&times;</span>
+            <h1>Oasis</h1>
+            <p>Welcome Back</p>
+            <hr>
+            <b>Email </b><input class="input" type="text" placeholder="Enter Email" name="email" required>
+            <b>Password </b>
+            <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+
+            <div class="clearfix">
+              <button type="button"
+                      onclick="document.getElementById('login').style.display='none'"
+                      class="cancelbtn">Cancel</button>
+              <button type="submit" onclick="loggedIn()" class="agreebtn">Login</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <button id="signupbtn"
+              onclick="document.getElementById('sign-up').style.display='block'"
+              class="signupbtn">Sign Up</button>
+
+      <!-- The sign-up modal -->
+      <div id="sign-up" class="modal">
+        <span onclick="document.getElementById('sign-up').style.display='none'"
+              class="close"
+              title="Close Modal">&times;</span>
+
+        <!-- The actual content -->
+        <form class="modal-content">
+          <div class="container">
+            <h1>Oasis</h1>
+            <p>Sign up</p>
+            <hr>
+            <b>Email</b>
+            <input class="input" type="text" placeholder="Enter Email" name="email" required>
+
+            <br />
+            <b>Password</b>
+            <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+
+            <b>Repeat Password</b>
+            <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+            <div class="clearfix">
+              <button type="button"
+                      onclick="document.getElementById('sign-up').style.display='none'"
+                      class="cancelbtn">Cancel</button>
+              <button type="submit" onclick="loggedIn()" class="agreebtn">Sign Up</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <button id="logoutbtn"
+              style="display: none"
+              onclick="loggedOut()"
+              class="signupbtn">Log Out</button>
     </div>
 
     <h2 style="text-align:center">Offer your Space!</h2>
