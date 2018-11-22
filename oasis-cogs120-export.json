@@ -1,0 +1,155 @@
+{
+
+  "availableRooms" : {
+    "0" : {
+      "capacity" : "980",
+      "description" : "This place is great",
+      "id" : "bridge",
+      "image" : "GBridge",
+      "location" : "San Francisco",
+      "name" : "Golden Gate Bridge",
+      "price" : "2,000",
+      "stars" : "4"
+    },
+    "1" : {
+      "capacity" : "768",
+      "description" : "This place is great",
+      "id" : "alcatraz",
+      "image" : "prison",
+      "location" : "San Francisco",
+      "name" : "Alcatraz Island",
+      "price" : "1,500",
+      "stars" : "4"
+    },
+    "2" : {
+      "capacity" : "1,000",
+      "description" : "This place is great",
+      "id" : "pier",
+      "image" : "pier",
+      "location" : "San Francisco",
+      "name" : "Pier",
+      "price" : "1,250",
+      "stars" : "4"
+    },
+    "3" : {
+      "capacity" : "780",
+      "description" : "This place is great",
+      "id" : "pc",
+      "image" : "pricecenter",
+      "location" : "La Jolla",
+      "name" : "Price Center",
+      "price" : "400",
+      "stars" : "3"
+    },
+    "4" : {
+      "capacity" : "350",
+      "description" : "This place is great",
+      "id" : "ballroom",
+      "image" : "ballroom",
+      "location" : "San Diego",
+      "name" : "Cityscope Banquet Hall",
+      "price" : "800",
+      "stars" : "3"
+    },
+    "5" : {
+      "capacity" : "600",
+      "description" : "This place is great",
+      "id" : "hyatt",
+      "image" : "regency",
+      "location" : "La Jolla",
+      "name" : "Hyatt Regency ",
+      "price" : "1,000",
+      "stars" : "3"
+    },
+    "6" : {
+      "capacity" : "500",
+      "description" : "This place is great",
+      "id" : "balboa",
+      "image" : "balboa",
+      "location" : "La Jolla",
+      "name" : "Balboa Park",
+      "price" : "600",
+      "stars" : "4"
+    },
+    "7" : {
+      "capacity" : "500",
+      "description" : "The venue includes a 40 x 24’ stage, full staged-size rehearsal room, production office with fully equipped projection booth, and parking lot is adjacent to the theatre.",
+      "id" : "observatory",
+      "image" : "observatory",
+      "location" : "San Diego",
+      "name" : "Observatory North Park",
+      "price" : "700",
+      "stars" : "5"
+    },
+    "8" : {
+      "capacity" : "700",
+      "description" : " Discover the best banquet halls and ballrooms with modern equipment and flexible layouts. Marriott San Diego offers a variety of options for festive private functions.",
+      "id" : "gaslamp",
+      "image" : "gaslamp",
+      "location" : "San Diego",
+      "name" : "Marriott Gaslamp Quarter",
+      "price" : "1,000",
+      "stars" : "5"
+    },
+    "9" : {
+      "capacity" : "1000",
+      "description" : "The venue provides spaces for various private or public events. The Waterfront Park features a large field, garden room, and play area.",
+      "id" : "waterfront",
+      "image" : "waterfront",
+      "location" : "San Diego",
+      "name" : "Waterfront Park",
+      "price" : "500",
+      "stars" : "5"
+    },
+    "10" : {
+      "capacity" : "400",
+      "description" : " The main hall walls is covered with gorgeous wainscoting. Amenities of the main hall include guest Wifi, free parking, registration and check-in area, and projection devices are available for rent.",
+      "id" : "liberty",
+      "image" : "liberty",
+      "location" : "San Diego",
+      "name" : "Liberty Station Center",
+      "price" : "800",
+      "stars" : "5"
+    },
+    "11" : {
+      "capacity" : "900",
+      "description" : "Little Italy provide space for music, festival, farmers market, you name it. Enjoy beautiful scenery at Piazza della Famiglia, in the heart of Little Italy.",
+      "id" : "piazza",
+      "image" : "piazza",
+      "location" : "San Diego",
+      "name" : "Piazza della Famiglia",
+      "price" : "1,000",
+      "stars" : "4"
+    },
+    "12" : {
+      "capacity" : "650",
+      "description" : "The Marriott in Beverly Hills is perfect for any event! Stunning ballrooms and a convenient location for all of your guests!",
+      "id" : "BH",
+      "image" : "BH",
+      "location" : "Los Angeles",
+      "name" : "Marriott Beverly Hills",
+      "price" : "5,000",
+      "stars" : "5"
+    },
+    "13" : {
+      "capacity" : "700",
+      "description" : "Luxe City Center Hotel is conveniently located in the heart of Los Angeles and offers beautiful views of downtown LA. Not only can you guests enjoy the view, but also the pool, ballrooms, food, drinks, wifi, and much more.",
+      "id" : "Luxe",
+      "image" : "Luxe",
+      "location" : "Los Angeles",
+      "name" : "Luxe City Center Hotel",
+      "price" : "3,000",
+      "stars" : "4"
+    },
+    "14" : {
+      "capacity" : "450",
+      "description" : "Enjoy watching the city sunset on the Rooftop at the Standard Hotel in the heart of Los Angeles! Guests can relax on the roof then head inside to ballrooms with beautiful stages, tables, food, bars, and company!",
+      "id" : "Standard",
+      "image" : "standard",
+      "location" : "Los Angeles",
+      "name" : "Standard Hotel Rooftop",
+      "price" : "6,000",
+      "stars" : "5"
+    }
+  }
+}

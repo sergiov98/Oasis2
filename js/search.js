@@ -1,130 +1,111 @@
-var availableRooms = JSON.parse(localStorage.getItem('availableRooms'));
-
-var indexes = JSON.parse(localStorage.getItem('indexes'));
-
-var filters = JSON.parse(localStorage.getItem('filters'));
-var results = [];
-
-for(var i = 0; i < availableRooms.length; i++){
-  if(availableRooms[i]['location']===filters[0]['location']){
-    var max = parseInt(filters[0]['maxCost'].replace(/\,/g,''));
-    var roomCost = parseInt(availableRooms[i]['price'].replace(/\,/g,''));
-    if( roomCost <= max){
-      results.push(availableRooms[i]);
-    }
-  }
-}
-
-var favorites = JSON.parse(localStorage.getItem('favorites'));
-var favIndex = JSON.parse(localStorage.getItem('favIndex'));
-
-function addtoFavorite(name){
-  var name = name.replace("Fav","");
-  if(localStorage.getItem("status") == null){
-    window.alert("Please log in before adding items to favorites");
-    return false;
-  }
-  var index = indexes.indexOf(name);
-  var space = availableRooms[index];
-
-  if( document.getElementById(name+"Fav").innerHTML === "Favorite")
-  {
-
-    if(favorites != null){
-      favorites.push(space);
-      favIndex.push(space['id']);
-    }
-    else {
-      favorites = [space];
-      favIndex = [space['id']];
-    }
-
-    document.getElementById(name+"Fav").innerHTML = "Remove from Favorite";
-    localStorage.setItem('favorites',JSON.stringify(favorites));
-    localStorage.setItem('favIndex',JSON.stringify(favIndex));
-  } else{
-    console.log('favorite');
-
-    var fIndex = favIndex.indexOf(space['id']);
-    favorites.splice(fIndex,1);
-    if(favorites.length == 0){
-      favorites = null;
-    }
-    favIndex.splice(fIndex,1);
-    localStorage.setItem('favorites',JSON.stringify(favorites));
-    localStorage.setItem('favIndex',JSON.stringify(favIndex));
-
-    document.getElementById(name+"Fav").innerHTML = "Favorite";
-
-  }
-}
-
-/* Function that will lead to details page */
-function getDetails(id){
-  var index = indexes.indexOf(id);
-  var loc = availableRooms[index];
-
-
-  localStorage.setItem('detailLocation',JSON.stringify(loc));
-  localStorage.setItem('prev','./search.html');
-  window.location.href='./details.html';
-}
-
-
 $(document).ready(function() {
-  console.log('hello world');
 
-  // compile the template
-  console.log("working")
-  var source   = $("#results-template").html();
-  var template = Handlebars.compile(source);
-  var parentDiv = $("#first-row");
+  // Get locations that match filters
+  var results =[];
+  var filters = JSON.parse(localStorage.getItem('filters'));
+  var availableRooms = JSON.parse(localStorage.getItem('availableRooms'));
 
-  for (var i = 0; i < 4; i++) {
-    if( i < results.length){
+  for(var i = 0; i < availableRooms.length; i++ ){
+
+    // change locations to lowercase, delete spaces
+    var roomLocation = availableRooms[i]['location'].replace(/\s/g,'').toLowerCase();
+    var filterLocation = filters[0]['location'].replace(/\s/g,'').toLowerCase();
+
+    // see if they match
+    if(roomLocation === filterLocation){
+      console.log('match found');
+      var max = parseInt(filters[0]['maxCost'].replace(/\,/g,''));
+      var roomCost = parseInt(availableRooms[i]['price'].replace(/\,/g,''));
+      if( roomCost <= max){
+        results.push(availableRooms[i]);
+      }
+    }
+  }
+
+  var myFilters = JSON.parse(localStorage.getItem('filters'));
+  if(myFilters != null){
+    var names = ['location','date', 'hours', 'guest', 'maxCost', 'minCost'];
+    for(var i = 0; i <names.length; i++){
+      document.getElementById(names[i]).value = myFilters[0][names[i]];
+      document.getElementById(names[i]).placeholder = "";
+
+    }
+  }
+  console.log(results);
+
+  if(results.length != 0){
+    var source   = $("#results-template").html();
+    var template = Handlebars.compile(source);
+    var parentDiv = $("#first-row");
+
+    for (var i = 0; i < 4; i++) {
+      if( i < results.length){
+        var curData = results[i];
+        var curHtml = template(curData);
+        parentDiv.append(curHtml);
+      }
+    }
+    var parentDiv = $("#second-row");
+
+    for (var i = 4; i < results.length; i++) {
       var curData = results[i];
       var curHtml = template(curData);
       parentDiv.append(curHtml);
     }
-  }
-  var parentDiv = $("#second-row");
 
-  for (var i = 4; i < results.length; i++) {
-    var curData = results[i];
-    var curHtml = template(curData);
-    parentDiv.append(curHtml);
-  }
+  } else {
+    var source   = $("#results-template").html();
+    var template = Handlebars.compile(source);
+    var parentDiv = $('#noResults');
+    var trendingRooms = [
+      {'name':'Golden Gate Bridge', 'image':'GBridge', 'price':'2,000','location':'San Francisco',
+        'capacity':'980', 'description':'This place is great',  'id':'bridge', 'stars':'4'},
+      {'name':'Alcatraz Island', 'image':'prison', 'price':'1,500','location':'San Francisco',
+        'capacity':'768', 'description':'This place is great',  'id':'alcatraz', 'stars':'4'},
+      {'name':'Pier', 'image':'pier', 'price':'1,250','location':'San Francisco',
+        'capacity':'1,000', 'description':'This place is great',  'id':'pier', 'stars':'4'},
+    ];
 
-  if( localStorage.getItem('status') != null){
-    if( favorites != null){
-      for( var i = 0; i <favorites.length; i=i+1){
-        var id = favorites[i]["id"]+"Fav";
-        if(document.getElementById(id) != null){
-          document.getElementById(id).innerHTML = "Remove from Favorite";
-        }
-      }
+    var indexes = ['bridge','alcatraz','pier','pc'];
+    for (var i = 0; i < trendingRooms.length; i++) {
+      var curData = trendingRooms[i];
+      var curHtml = template(curData);
+      parentDiv.append(curHtml);
     }
+    document.getElementById('first-row').style.display = 'none';
+    document.getElementById('second-row').style.display = 'none';
+    document.getElementById('noResults').style.display = 'inline-block';
   }
 });
 
-var favs = document.getElementById('favorites');
+function search(){
+  var loc = $('#location').val();
+  var date = $('#date').val();
+  var hours =$('#hours').val();
+  var guest = $('#guest').val();
+  var min = $('#minCost').val();
+  var max = $('#maxCost').val();
 
-favs.onclick = function(){
-  if(localStorage.getItem("status") !== null){
-    window.location='./myFavorites.html';
-    return false;
+
+  /* add a default values */
+  if(date === ""){
+    date = "2020-04-30";
   }
-}
-function loggedIn(){
-  localStorage.setItem("status", "loggedIn");
-}
-function loggedOut(){
-  localStorage.removeItem("status");
-  window.location.href='./index.html';
+  if(hours === ""){
+    hours = "1";
+  }
+  if(guest === ""){
+    guest = "1";
+  }
+  if(min === ""){
+    min = "0";
+  }
 
-}
-if(localStorage.getItem("status") !== null){
-  document.getElementById('loginbtn').style.display='none';
-  document.getElementById('signupbtn').style.display='none';
-  document.getElementById('logoutbtn').style.display='inline-block';
+  var filters = [
+    {'location':loc, 'date':date, 'hours':hours, 'guest':guest, 'minCost':min, 'maxCost':max}
+  ];
+
+  localStorage.setItem('filters', JSON.stringify(filters));
+
+  window.location.href='./search.html';
 }

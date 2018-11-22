@@ -14,61 +14,58 @@
   <div class="nav-bar">
     <a href="./index.html"><b>Oasis</b></a>
     <a href="#help">Help</a>
-    <a id="favorites" href="./favorites.html">Favorites</a>
+    <a id='favorites' href="./favorites.html">Favorites</a>
     <a href="./host.html">List Your Space</a>
+
+    <!-- The Log-in Modal and button -->
     <button id="loginbtn"
             onclick="document.getElementById('login').style.display='block'"
             class="loginbtn">Log in</button>
-
-    <!-- The Log-in Modal -->
     <div id="login" class="modal">
-
-
       <!-- The actual content of the log in -->
-      <form class="modal-content">
-        <div class="container">
-          <span onclick="document.getElementById('login').style.display='none'"
-                class="close"
-                title="Close Modal">&times;</span>
-          <h1>Oasis</h1>
-          <p>Welcome Back</p>
-          <hr>
-          <b>Email </b><input class="input" type="text" placeholder="Enter Email" name="email" required>
-          <b>Password </b>
-          <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+      <div class="modal-content">
+          <div class="container">
+            <span onclick="document.getElementById('login').style.display='none'"
+                  class="close"
+                  title="Close Modal">&times;</span>
+            <h1>Oasis</h1>
+            <p>Welcome Back</p>
+            <hr>
+            <b>Email </b><input id="logEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
+            <b>Password </b>
+            <input id="logPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
-          <div class="clearfix">
-            <button type="button"
-                    onclick="document.getElementById('login').style.display='none'"
-                    class="cancelbtn">Cancel</button>
-            <button type="submit" onclick="loggedIn()" class="agreebtn">Login</button>
+            <div class="clearfix">
+              <button type="button"
+                      onclick="document.getElementById('login').style.display='none'"
+                      class="cancelbtn">Cancel</button>
+              <button id="btnLogIn" type="submit" class="agreebtn">Login</button>
+            </div>
           </div>
-        </div>
-      </form>
-
+      </div>
     </div>
-    <button id="signupbtn"
-            onclick="document.getElementById('sign-up').style.display='block'"
-            class="signupbtn">Sign Up</button>
 
-    <!-- The sign-up modal -->
-    <div id="sign-up" class="modal">
+    <!-- The sign-up modal and button -->
+    <button id="signupbtn"
+            onclick="document.getElementById('signup').style.display='block'"
+            class="signupbtn">Sign Up</button>
+    <div id="signup" class="modal">
       <span onclick="document.getElementById('sign-up').style.display='none'"
             class="close"
             title="Close Modal">&times;</span>
 
       <!-- The actual content -->
-      <form class="modal-content">
+      <div class="modal-content">
         <div class="container">
           <h1>Oasis</h1>
           <p>Sign up</p>
           <hr>
           <b>Email</b>
-          <input class="input" type="text" placeholder="Enter Email" name="email" required>
+          <input id="signEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
 
           <br />
           <b>Password</b>
-          <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+          <input id="signPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
           <b>Repeat Password</b>
           <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" required>
@@ -77,26 +74,18 @@
             <button type="button"
                     onclick="document.getElementById('sign-up').style.display='none'"
                     class="cancelbtn">Cancel</button>
-            <button type="submit" onclick="loggedIn()" class="agreebtn">Sign Up</button>
+            <button id="btnSignUp" type="submit" class="agreebtn">Sign Up</button>
           </div>
         </div>
-      </form>
+      </div>
 
     </div>
-    <button id="logoutbtn"
-            style="display: none"
-            onclick="loggedOut()"
-            class="signupbtn">Log Out</button>
-  </div>
 
-  <!-- The search bar might be unnecessary -->
-  <div class="search" id="search-bar">
-    <form action="filter.html">
-      <input type="text"
-             placeholder="What event are you planning?"
-             size="25px" />
-      <input type="submit" />
-    </form>
+    <!-- The logout button -->
+    <button id="btnLogOut"
+            style="display:none"
+            class="signupbtn">Log Out</button>
+
   </div>
 
   <!-- The div for the activities -->
@@ -118,6 +107,16 @@
     <div class="row" id="second-row" style="padding-bottom:4%">
 
     </div>
+  </div>
+
+  <!-- The search bar might be unnecessary -->
+  <div class="search" id="search-bar">
+    <form action="filter.html">
+      <input type="text"
+             placeholder="What event are you planning?"
+             size="25px" />
+      <input type="submit" />
+    </form>
   </div>
 
   <!-- The help div -->
@@ -148,6 +147,8 @@
 
   <!-- Connecting the js files -->
   <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/setup.js"></script>
+  <script src="js/favDetails.js"></script>
   <script src="js/index.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/handlebars-v4.0.11.js"></script>

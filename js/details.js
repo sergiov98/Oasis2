@@ -1,13 +1,61 @@
-var result = JSON.parse(localStorage.getItem('detailLocation'));
-var extras = JSON.parse(localStorage.getItem('extras'));
-var reviews = JSON.parse(localStorage.getItem('reviews'))
-var prev = (localStorage.getItem('prev'));
+/*
+ * Set up page
+ */
+
+$(document).ready(function() {
+
+  // Get the details of the location
+  var result = JSON.parse(localStorage.getItem('detailLocation'));
+
+  // compile the template
+  var source = $("#details-template").html();
+  var template = Handlebars.compile(source);
+  var parentDiv = $("#details");
+  var curData = result;
+  var curHtml = template(curData);
+  parentDiv.prepend(curHtml);
+
+  /* Get the stars in the reviews */
+  var star = parseInt(result['stars']);
+  for(var i = 0; i < star; i++){
+    document.getElementById(i+"").classList.add('checked');
+    document.getElementById(i+"-modal").classList.add('checked');
+  }
+
+  /* Add reviews, if any */
+  var reviews = JSON.parse(localStorage.getItem('reviews'));
+  if(reviews != null){
+    for(var i = 0; i < reviews.length; i++){
+      if(reviews[i]['name']==result['name']){
+        for(var j = 0; j < parseInt(reviews[i]['stars']); j++ ){
+          document.getElementById(j+"-review").classList.add('checked');
+        }
+        document.getElementById("myReviewh3").innerHTML = reviews[i]['text'];
+        document.getElementById('myReview').style.display = 'inline';
+      }
+    }
+  }
+
+  /*Determine extras, if any */
+  var extras = JSON.parse(localStorage.getItem('extras'));
+
+  if(extras != null){
+    for(var i = 0; i < extras.length; i++){
+      document.getElementById(extras[i]['name']).innerHTML = "Remove from Cart";
+      document.getElementById(extras[i]['name']+"Btn").style.backgroundColor="#8cf442";
+    }
+  }
+});
 
 
+/* Go back to previous page */
 function goBack(variable){
+  var prev = (localStorage.getItem('prev'));
+  localStorage.setItem('extras',null);
   window.location.href = prev;
 }
 
+/* Close modal if clicking outside of it*/
 window.onclick = function(event) {
     var modal = document.getElementById("planner-modal");
     if (event.target == modal) {
@@ -54,8 +102,10 @@ function submitted(){
   document.getElementById('myReview').style.display = 'inline';
 }
 
+/* Add additional services to cart */
 function added(id){
-  console.log('add');
+  var extras = JSON.parse(localStorage.getItem('extras'));
+
   if(document.getElementById(id).innerHTML === "Add to cart"){
     var price = document.getElementById(id+"Price").innerHTML.replace('$','');
     var addExtra = {'name':id,'price':price};
@@ -90,64 +140,14 @@ function added(id){
   }
 
 }
-$(document).ready(function() {
-  console.log('hello world');
-  if(extras != null){
-    for(var i = 0; i < extras.length; i++){
-      document.getElementById(extras[i]['name']).innerHTML = "Remove from Cart";
-      document.getElementById(extras[i]['name']+"Btn").style.backgroundColor="#8cf442";
-    }
-  }
 
-  var star = parseInt(result['stars']);
-  for(var i = 0; i < star; i++){
-    document.getElementById(i+"").classList.add('checked');
-    document.getElementById(i+"-modal").classList.add('checked');
-  }
-
-  // compile the template
-  console.log("working")
-  var source = $("#details-template").html();
-  var template = Handlebars.compile(source);
-  var parentDiv = $("#details");
-
-  var curData = result;
-  var curHtml = template(curData);
-  parentDiv.prepend(curHtml);
-
-
-  if(reviews != null){
-    for(var i = 0; i < reviews.length; i++){
-      if(reviews[i]['name']==result['name']){
-        for(var j = 0; j < parseInt(reviews[i]['stars']); j++ ){
-          document.getElementById(j+"-review").classList.add('checked');
-        }
-        document.getElementById("myReviewh3").innerHTML = reviews[i]['text'];
-        document.getElementById('myReview').style.display = 'inline';
-      }
-    }
-  }
-});
 
 
 var favs = document.getElementById('favorites');
 
 favs.onclick = function(){
-  if(localStorage.getItem("status") !== null){
+  if(localStorage.getItem("user") !== null){
     window.location='./myFavorites.html';
     return false;
   }
-}
-function loggedIn(){
-  localStorage.setItem("status", "loggedIn");
-}
-function loggedOut(){
-  localStorage.removeItem("status");
-  window.location.href='./index.html';
-
-}
-if(localStorage.getItem("status") !== null){
-  document.getElementById('loginbtn').style.display='none';
-  document.getElementById('signupbtn').style.display='none';
-  document.getElementById('logoutbtn').style.display='inline-block';
 }

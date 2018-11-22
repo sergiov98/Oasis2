@@ -7,48 +7,10 @@ var trendingRooms = [
     'capacity':'1,000', 'description':'This place is great',  'id':'pier', 'stars':'4'},
 ];
 
-
-var indexes = ['bridgeFav','alcatrazFav','pierFav','pcFav'];
+var indexes = ['bridge','alcatraz','pier','pc'];
 
 var favorites = JSON.parse(localStorage.getItem('favorites'));
 var favIndex = JSON.parse(localStorage.getItem('favIndex'));
-
-function addtoFavorite(name){
-  if(localStorage.getItem("status") == null){
-    window.alert("Please log in before adding items to favorites");
-    return false;
-  }
-  var index = indexes.indexOf(name);
-  var space = trendingRooms[index];
-
-  if( document.getElementById(name).innerHTML === "Favorite")
-  {
-
-    if( favorites != null ){
-      favorites.push(space);
-      favIndex.push(space['id']);
-    }
-    else {
-      favorites = [space];
-      favIndex = [space['id']];
-    }
-
-    document.getElementById(name).innerHTML = "Remove from Favorite";
-    localStorage.setItem('favorites',JSON.stringify(favorites));
-    localStorage.setItem('favIndex',JSON.stringify(favIndex));
-  } else{
-
-    var fIndex = favIndex.indexOf(space['id']);
-    favorites.splice(fIndex,1);
-    if(favorites.length == 0){
-      favorites = null;
-    }
-    favIndex.splice(fIndex,1);
-    localStorage.setItem('favorites',JSON.stringify(favorites));
-    localStorage.setItem('favIndex',JSON.stringify(favIndex));
-    document.getElementById(name).innerHTML = "Favorite";
-  }
-}
 
 $(document).ready(function() {
 
@@ -63,7 +25,7 @@ $(document).ready(function() {
     parentDiv.append(curHtml);
   }
 
-  if( localStorage.getItem('status') != null ){
+  if( localStorage.getItem('user') != null ){
     if( favorites != null){
       for( var i = 0; i <favorites.length; i=i+1){
         var id = favorites[i]["id"];
@@ -75,30 +37,3 @@ $(document).ready(function() {
   }
 
 });
-
-function loggedIn(){
-  localStorage.setItem("status", "loggedIn");
-}
-function loggedOut(){
-  localStorage.removeItem("status");
-  window.location.href='./favorites.html';
-
-}
-
-
-if(localStorage.getItem("status") !== null){
-  document.getElementById('loginbtn').style.display='none';
-  document.getElementById('signupbtn').style.display='none';
-  document.getElementById('logoutbtn').style.display='inline-block';
-}
-
-var index_details = ['bridge','alcatraz','pier','pc','ballroom','hyatt','balboa'];
-/* Function that will lead to details page */
-function getDetails(id){
-  var index = index_details.indexOf(id);
-  var loc = trendingRooms[index];
-
-  localStorage.setItem('detailLocation',JSON.stringify(loc));
-  localStorage.setItem('prev','./favorites.html');
-  window.location.href='./details.html';
-}

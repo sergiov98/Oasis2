@@ -7,63 +7,98 @@
   <link rel="stylesheet" type="text/css" href="./css/layout.css" />
 </head>
 <body>
-  <div class="nav-bar" style="align:left">
+
+  <!-- Nav Bar -->
+  <div class="nav-bar" style="text-align:left">
     <a href="./index.html"><b>Oasis</b></a>
-    <a href="./filter.html">Adjust Filters</a>
-    <a id="favorites" href="./favorites.html">Favorites</a>
+    <a onclick="document.getElementById('filter').style.display='block'" href="#">Adjust Filters</a>
+    <div id="filter" class="modal">
+      <!-- The actual content of the filter -->
+      <div class="modal-content">
+          <div class="container">
+            <span onclick="document.getElementById('filter').style.display='none'"
+                  class="close"
+                  title="Close Modal"
+                  >&times;</span>
+            <h1>Filters</h1>
+            <ul>
+              <li>
+                Location: <input required id="location" name="location" type="text" required placeholder="San Diego" value=""/>
+              </li>
+              <li>
+                Date: <input required id="date" name ="date" type="date" required placeholder="mm/dd/yyyy" value=""  />
+              </li>
+              <li>
+                Duration: <input required id="hours" name="hours" type="number" min="1" max="24" placeholder="5" value="" /> hours
+              </li>
+              <li>
+                Number of Guests: <input id="guest" name="guest" type="text" placeholder="10" value="" />
+              </li>
+              <li>
+                Price Range from: $<input id="minCost" name="min" type="number" min="100"  placeholder="100"  value="" /> to:
+                $<input id="maxCost" name="max" type="number" min="100"  placeholder="1000" value="" />
+
+              </li>
+            </ul>
+
+            <div class="clearfix">
+              <button onclick=search() type="submit">Filter</button>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <a id='favorites' href="./favorites.html">Favorites</a>
+
+    <!-- The Log-in Modal and button -->
     <button id="loginbtn"
             onclick="document.getElementById('login').style.display='block'"
             class="loginbtn">Log in</button>
-
-    <!-- The Log-in Modal -->
     <div id="login" class="modal">
-
-
       <!-- The actual content of the log in -->
-      <form class="modal-content">
-        <div class="container">
-          <span onclick="document.getElementById('login').style.display='none'"
-                class="close"
-                title="Close Modal">&times;</span>
-          <h1>Oasis</h1>
-          <p>Welcome Back</p>
-          <hr>
-          <b>Email </b><input class="input" type="text" placeholder="Enter Email" name="email" required>
-          <b>Password </b>
-          <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+      <div class="modal-content">
+          <div class="container">
+            <span onclick="document.getElementById('login').style.display='none'"
+                  class="close"
+                  title="Close Modal">&times;</span>
+            <h1>Oasis</h1>
+            <p>Welcome Back</p>
+            <hr>
+            <b>Email </b><input id="logEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
+            <b>Password </b>
+            <input id="logPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
-          <div class="clearfix">
-            <button type="button"
-                    onclick="document.getElementById('login').style.display='none'"
-                    class="cancelbtn">Cancel</button>
-            <button type="submit" onclick="loggedIn()" class="agreebtn">Login</button>
+            <div class="clearfix">
+              <button type="button"
+                      onclick="document.getElementById('login').style.display='none'"
+                      class="cancelbtn">Cancel</button>
+              <button id="btnLogIn" type="submit" class="agreebtn">Login</button>
+            </div>
           </div>
-        </div>
-      </form>
-
+      </div>
     </div>
-    <button id="signupbtn"
-            onclick="document.getElementById('sign-up').style.display='block'"
-            class="signupbtn">Sign Up</button>
 
-    <!-- The sign-up modal -->
-    <div id="sign-up" class="modal">
+    <!-- The sign-up modal and button -->
+    <button id="signupbtn"
+            onclick="document.getElementById('signup').style.display='block'"
+            class="signupbtn">Sign Up</button>
+    <div id="signup" class="modal">
       <span onclick="document.getElementById('sign-up').style.display='none'"
             class="close"
             title="Close Modal">&times;</span>
 
       <!-- The actual content -->
-      <form class="modal-content">
+      <div class="modal-content">
         <div class="container">
           <h1>Oasis</h1>
           <p>Sign up</p>
           <hr>
           <b>Email</b>
-          <input class="input" type="text" placeholder="Enter Email" name="email" required>
+          <input id="signEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
 
           <br />
           <b>Password</b>
-          <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+          <input id="signPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
           <b>Repeat Password</b>
           <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" required>
@@ -72,15 +107,16 @@
             <button type="button"
                     onclick="document.getElementById('sign-up').style.display='none'"
                     class="cancelbtn">Cancel</button>
-            <button type="submit" onclick="loggedIn()" class="agreebtn">Sign Up</button>
+            <button id="btnSignUp" type="submit" class="agreebtn">Sign Up</button>
           </div>
         </div>
-      </form>
+      </div>
 
     </div>
-    <button id="logoutbtn"
-            style="display: none"
-            onclick="loggedOut()"
+
+    <!-- The logout button -->
+    <button id="btnLogOut"
+            style="display:none"
             class="signupbtn">Log Out</button>
   </div>
   <div class="intro">
@@ -112,8 +148,15 @@
   <div id="second-row" class="event-holder">
 
   </div>
+  <div id="noResults" class="event-holder" style="display:none">
+    <h1>No locations match your filters, but check out some trending locations</h1>
+
+  </div>
   <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/setup.js"></script>
   <script src="js/search.js"></script>
+  <script src="js/favDetails.js"></script>
+
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/handlebars-v4.0.11.js"></script>
 </body>

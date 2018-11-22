@@ -10,59 +10,55 @@
     <div class="nav-bar" style="text-align:left">
       <a href="./index.html"><b>Oasis</b></a>
       <a id="favorites" href="./favorites.html">Favorites</a>
+      <!-- The Log-in Modal and button -->
       <button id="loginbtn"
               onclick="document.getElementById('login').style.display='block'"
               class="loginbtn">Log in</button>
-
-      <!-- The Log-in Modal -->
       <div id="login" class="modal">
-
-
         <!-- The actual content of the log in -->
-        <form class="modal-content">
-          <div class="container">
-            <span onclick="document.getElementById('login').style.display='none'"
-                  class="close"
-                  title="Close Modal">&times;</span>
-            <h1>Oasis</h1>
-            <p>Welcome Back</p>
-            <hr>
-            <b>Email </b><input class="input" type="text" placeholder="Enter Email" name="email" required>
-            <b>Password </b>
-            <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+        <div class="modal-content">
+            <div class="container">
+              <span onclick="document.getElementById('login').style.display='none'"
+                    class="close"
+                    title="Close Modal">&times;</span>
+              <h1>Oasis</h1>
+              <p>Welcome Back</p>
+              <hr>
+              <b>Email </b><input id="logEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
+              <b>Password </b>
+              <input id="logPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
-            <div class="clearfix">
-              <button type="button"
-                      onclick="document.getElementById('login').style.display='none'"
-                      class="cancelbtn">Cancel</button>
-              <button type="submit" onclick="loggedIn()" class="agreebtn">Login</button>
+              <div class="clearfix">
+                <button type="button"
+                        onclick="document.getElementById('login').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                <button id="btnLogIn" type="submit" class="agreebtn">Login</button>
+              </div>
             </div>
-          </div>
-        </form>
-
+        </div>
       </div>
-      <button id="signupbtn"
-              onclick="document.getElementById('sign-up').style.display='block'"
-              class="signupbtn">Sign Up</button>
 
-      <!-- The sign-up modal -->
-      <div id="sign-up" class="modal">
+      <!-- The sign-up modal and button -->
+      <button id="signupbtn"
+              onclick="document.getElementById('signup').style.display='block'"
+              class="signupbtn">Sign Up</button>
+      <div id="signup" class="modal">
         <span onclick="document.getElementById('sign-up').style.display='none'"
               class="close"
               title="Close Modal">&times;</span>
 
         <!-- The actual content -->
-        <form class="modal-content">
+        <div class="modal-content">
           <div class="container">
             <h1>Oasis</h1>
             <p>Sign up</p>
             <hr>
             <b>Email</b>
-            <input class="input" type="text" placeholder="Enter Email" name="email" required>
+            <input id="signEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
 
             <br />
             <b>Password</b>
-            <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+            <input id="signPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
             <b>Repeat Password</b>
             <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" required>
@@ -71,15 +67,16 @@
               <button type="button"
                       onclick="document.getElementById('sign-up').style.display='none'"
                       class="cancelbtn">Cancel</button>
-              <button type="submit" onclick="loggedIn()" class="agreebtn">Sign Up</button>
+              <button id="btnSignUp" type="submit" class="agreebtn">Sign Up</button>
             </div>
           </div>
-        </form>
+        </div>
 
       </div>
-      <button id="logoutbtn"
-              style="display: none"
-              onclick="loggedOut()"
+
+      <!-- The logout button -->
+      <button id="btnLogOut"
+              style="display:none"
               class="signupbtn">Log Out</button>
     </div>
 
@@ -87,23 +84,20 @@
       <form href="./search.html" id="filters" >
         <ul>
           <li>
-            Location: <input id="location" name="location" type="text" required placeholder="San Diego" value=""/>
+            Location: <input required id="location" name="location" type="text" required placeholder="San Diego" value=""/>
           </li>
           <li>
-            Date: <input id="date" name ="date" type="date" required placeholder="mm/dd/yyyy" value=""  />
+            Date: <input required id="date" name ="date" type="date" required placeholder="mm/dd/yyyy" value=""  />
           </li>
           <li>
-            Duration: <input id="hours" name="hours" type="number" min="1" max="24" placeholder="5" value="" />
+            Duration: <input required id="hours" name="hours" type="number" min="1" max="24" placeholder="5" value="" /> Hours
           </li>
           <li>
             Number of Guests: <input id="guest" name="guest" type="text" placeholder="10" value="" />
           </li>
+
           <li>
-            <input id="indoor" name="indoor" type="checkbox" value="indoor">Indoor
-            <input id="outdoor" name="outdoor" type="checkbox" value="outdoor">Outdoor
-          </li>
-          <li>
-            Prince Range from: $<input id="minCost" name="min" type="number" min="100"  placeholder="100"  value="" /> to:
+            Price Range from: $<input id="minCost" name="min" type="number" min="100"  placeholder="100"  value="" /> to:
             $<input id="maxCost" name="max" type="number" min="100"  placeholder="1000" value="" />
 
           </li>
@@ -115,6 +109,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/setup.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/handlebars-v4.0.11.js"></script>

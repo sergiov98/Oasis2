@@ -239,6 +239,10 @@ hr {
   margin:0;
 }
 
+.container li{
+  float:inherit;
+}
+
 /*details html*/
 .checked{
   color: orange;

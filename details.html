@@ -7,64 +7,62 @@
   <link rel="stylesheet" type="text/css" href="./css/layout.css" />
   <link rel="stylesheet"
  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
-  <div class="nav-bar">
+  <!-- Nav Bar -->
+  <div class="nav-bar" style="text-align:left">
     <a href="./index.html"><b>Oasis</b></a>
     <a id="favorites" href="./favorites.html">Favorites</a>
+    <!-- The Log-in Modal and button -->
     <button id="loginbtn"
             onclick="document.getElementById('login').style.display='block'"
             class="loginbtn">Log in</button>
-
-    <!-- The Log-in Modal -->
     <div id="login" class="modal">
-
-
       <!-- The actual content of the log in -->
-      <form class="modal-content">
-        <div class="container">
-          <span onclick="document.getElementById('login').style.display='none'"
-                class="close"
-                title="Close Modal">&times;</span>
-          <h1>Oasis</h1>
-          <p>Welcome Back</p>
-          <hr>
-          <b>Email </b><input class="input" type="text" placeholder="Enter Email" name="email" required>
-          <b>Password </b>
-          <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+      <div class="modal-content">
+          <div class="container">
+            <span onclick="document.getElementById('login').style.display='none'"
+                  class="close"
+                  title="Close Modal">&times;</span>
+            <h1>Oasis</h1>
+            <p>Welcome Back</p>
+            <hr>
+            <b>Email </b><input id="logEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
+            <b>Password </b>
+            <input id="logPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
-          <div class="clearfix">
-            <button type="button"
-                    onclick="document.getElementById('login').style.display='none'"
-                    class="cancelbtn">Cancel</button>
-            <button type="submit" onclick="loggedIn()" class="agreebtn">Login</button>
+            <div class="clearfix">
+              <button type="button"
+                      onclick="document.getElementById('login').style.display='none'"
+                      class="cancelbtn">Cancel</button>
+              <button id="btnLogIn" type="submit" class="agreebtn">Login</button>
+            </div>
           </div>
-        </div>
-      </form>
-
+      </div>
     </div>
-    <button id="signupbtn"
-            onclick="document.getElementById('sign-up').style.display='block'"
-            class="signupbtn">Sign Up</button>
 
-    <!-- The sign-up modal -->
-    <div id="sign-up" class="modal">
+    <!-- The sign-up modal and button -->
+    <button id="signupbtn"
+            onclick="document.getElementById('signup').style.display='block'"
+            class="signupbtn">Sign Up</button>
+    <div id="signup" class="modal">
       <span onclick="document.getElementById('sign-up').style.display='none'"
             class="close"
             title="Close Modal">&times;</span>
 
       <!-- The actual content -->
-      <form class="modal-content">
+      <div class="modal-content">
         <div class="container">
           <h1>Oasis</h1>
           <p>Sign up</p>
           <hr>
           <b>Email</b>
-          <input class="input" type="text" placeholder="Enter Email" name="email" required>
+          <input id="signEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
 
           <br />
           <b>Password</b>
-          <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+          <input id="signPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
           <b>Repeat Password</b>
           <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" required>
@@ -73,17 +71,19 @@
             <button type="button"
                     onclick="document.getElementById('sign-up').style.display='none'"
                     class="cancelbtn">Cancel</button>
-            <button type="submit" onclick="loggedIn()" class="agreebtn">Sign Up</button>
+            <button id="btnSignUp" type="submit" class="agreebtn">Sign Up</button>
           </div>
         </div>
-      </form>
+      </div>
 
     </div>
-    <button id="logoutbtn"
-            style="display: none"
-            onclick="loggedOut()"
+
+    <!-- The logout button -->
+    <button id="btnLogOut"
+            style="display:none"
             class="signupbtn">Log Out</button>
   </div>
+
   <script id="details-template" type="text/x-handlebars-template">
     <div style="display:inherit">
       <div class="event">
@@ -121,7 +121,7 @@
   <div id="moreDetails" >
     <div id="reviews" class="modal">
       <span onclick="document.getElementById('reviews').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <form class="modal-content">
+      <div class="modal-content">
         <div class="container">
           <h1>Reviews</h1>
           <span id="0-modal" class="fa fa-star"></span>
@@ -145,7 +145,7 @@
           <br />
           <button onclick="submitted()">Submit a review</button>
         </div>
-      </form>
+      </div>
     </div>
     <div id="reviews">
       <span id="0" class="fa fa-star"></span>
@@ -157,7 +157,7 @@
     </div>
     <div id="catering-modal" class="modal">
       <span onclick="document.getElementById('catering-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <form class="modal-content">
+      <div class="modal-content">
         <div class="container">
           <h1>Catering</h1>
           <h3 id="cateringPrice">$200</h3>
@@ -169,11 +169,11 @@
           </p>
           <button id="catering" onclick="added(this.id)">Add to cart</button>
         </div>
-      </form>
+      </div>
     </div>
     <div id="transportation-modal" class="modal">
       <span onclick="document.getElementById('transportation-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <form class="modal-content">
+      <div class="modal-content">
         <div class="container">
           <h1>Transportation</h1>
           <h3 id="transportationPrice">$250</h3>
@@ -184,11 +184,11 @@
           </p>
           <button id="transportation" onclick="added(this.id)">Add to cart</button>
         </div>
-      </form>
+      </div>
     </div>
     <div id="entertainment-modal" class="modal">
       <span onclick="document.getElementById('entertainment-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <form class="modal-content">
+      <div class="modal-content">
         <div class="container">
           <h1>Entertainment</h1>
           <h3 id="entertainmentPrice">$500</h3>
@@ -200,11 +200,11 @@
           </p>
           <button id="entertainment"  onclick="added(this.id)">Add to cart</button>
         </div>
-      </form>
+      </div>
     </div>
     <div id="planner-modal" class="modal">
       <span onclick="document.getElementById('planner-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <form class="modal-content">
+      <div class="modal-content">
         <div class="container">
           <h1>Planner</h1>
           <h3 id="plannerPrice">$100</h3>
@@ -216,7 +216,7 @@
           </p>
           <button id="planner" onclick="added(this.id)">Add to cart</button>
         </div>
-      </form>
+      </div>
     </div>
     <div id="service-holder" class="service">
       <h3>Add these additional services to your events. Click more for details</h3>
@@ -241,6 +241,8 @@
 
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="js/details.js"></script>
+  <script src="js/setup.js"></script>
+
   <script src="js/bootstrap.min.js"></script>
   <script src="js/handlebars-v4.0.11.js"></script>
 </body>

@@ -9,6 +9,7 @@ $(document).ready(function() {
 
     }
   }
+
 });
 
 function search(){
@@ -19,6 +20,21 @@ function search(){
   var min = $('#minCost').val();
   var max = $('#maxCost').val();
 
+
+  /* add a default values */
+  if(date === ""){
+    date = "2020-04-30";
+  }
+  if(hours === ""){
+    hours = "1";
+  }
+  if(guest === ""){
+    guest = "1";
+  }
+  if(min === ""){
+    min = "0";
+  }
+
   var filters = [
     {'location':loc, 'date':date, 'hours':hours, 'guest':guest, 'minCost':min, 'maxCost':max}
   ];
@@ -26,26 +42,4 @@ function search(){
   localStorage.setItem('filters', JSON.stringify(filters));
 
   window.location.href='./search.html';
-}
-
-var favs = document.getElementById('favorites');
-
-favs.onclick = function(){
-  if(localStorage.getItem("status") !== null){
-    window.location='./myFavorites.html';
-    return false;
-  }
-}
-function loggedIn(){
-  localStorage.setItem("status", "loggedIn");
-}
-function loggedOut(){
-  localStorage.removeItem("status");
-  window.location.href='./index.html';
-
-}
-if(localStorage.getItem("status") !== null){
-  document.getElementById('loginbtn').style.display='none';
-  document.getElementById('signupbtn').style.display='none';
-  document.getElementById('logoutbtn').style.display='inline-block';
 }

@@ -8,59 +8,55 @@
   <body>
     <div class="nav-bar" style="text-align:left">
       <a  href="./index.html"><b>Oasis</b></a>
+      <!-- The Log-in Modal and button -->
       <button id="loginbtn"
               onclick="document.getElementById('login').style.display='block'"
               class="loginbtn">Log in</button>
-
-      <!-- The Log-in Modal -->
       <div id="login" class="modal">
-
-
         <!-- The actual content of the log in -->
-        <form class="modal-content">
-          <div class="container">
-            <span onclick="document.getElementById('login').style.display='none'"
-                  class="close"
-                  title="Close Modal">&times;</span>
-            <h1>Oasis</h1>
-            <p>Welcome Back</p>
-            <hr>
-            <b>Email </b><input class="input" type="text" placeholder="Enter Email" name="email" required>
-            <b>Password </b>
-            <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+        <div class="modal-content">
+            <div class="container">
+              <span onclick="document.getElementById('login').style.display='none'"
+                    class="close"
+                    title="Close Modal">&times;</span>
+              <h1>Oasis</h1>
+              <p>Welcome Back</p>
+              <hr>
+              <b>Email </b><input id="logEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
+              <b>Password </b>
+              <input id="logPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
-            <div class="clearfix">
-              <button type="button"
-                      onclick="document.getElementById('login').style.display='none'"
-                      class="cancelbtn">Cancel</button>
-              <button type="submit" onclick="loggedIn()" class="agreebtn">Login</button>
+              <div class="clearfix">
+                <button type="button"
+                        onclick="document.getElementById('login').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                <button id="btnLogIn" type="submit" class="agreebtn">Login</button>
+              </div>
             </div>
-          </div>
-        </form>
-
+        </div>
       </div>
-      <button id="signupbtn"
-              onclick="document.getElementById('sign-up').style.display='block'"
-              class="signupbtn">Sign Up</button>
 
-      <!-- The sign-up modal -->
-      <div id="sign-up" class="modal">
+      <!-- The sign-up modal and button -->
+      <button id="signupbtn"
+              onclick="document.getElementById('signup').style.display='block'"
+              class="signupbtn">Sign Up</button>
+      <div id="signup" class="modal">
         <span onclick="document.getElementById('sign-up').style.display='none'"
               class="close"
               title="Close Modal">&times;</span>
 
         <!-- The actual content -->
-        <form class="modal-content">
+        <div class="modal-content">
           <div class="container">
             <h1>Oasis</h1>
             <p>Sign up</p>
             <hr>
             <b>Email</b>
-            <input class="input" type="text" placeholder="Enter Email" name="email" required>
+            <input id="signEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
 
             <br />
             <b>Password</b>
-            <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+            <input id="signPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
             <b>Repeat Password</b>
             <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" required>
@@ -69,16 +65,19 @@
               <button type="button"
                       onclick="document.getElementById('sign-up').style.display='none'"
                       class="cancelbtn">Cancel</button>
-              <button type="submit" onclick="loggedIn()" class="agreebtn">Sign Up</button>
+              <button id="btnSignUp" type="submit" class="agreebtn">Sign Up</button>
             </div>
           </div>
-        </form>
+        </div>
 
       </div>
-      <button id="logoutbtn"
-              style="display: none"
-              onclick="loggedOut()"
+
+      <!-- The logout button -->
+      <button id="btnLogOut"
+              style="display:none"
               class="signupbtn">Log Out</button>
+      </div>
+
     </div>
 
     <h2 style="text-align:center">Offer your Space!</h2>
@@ -88,18 +87,18 @@
     <div id="registration" style="padding-left:5%">
       <h1>Let's Get Started!</h1>
       <div id="intro">
-        <form>
+        <div>
           <input style="margin-bottom: 2%;"  type="text" id="name" name="name" value="">Name of your space?
           <br />
           <input style="margin-bottom: 2%; padding:1%"  type="text"
             id="description" name="description" value="">Give us a little description
-        </form>
+        </div>
       </div>
       <div id="categories">
 
         <h4>What is your space suited for?</h4>
         <div id="cat-options">
-          <form>
+          <div>
             <fieldset class="host-field" id="first-row">
               <input type="checkbox" placeholder="">Wedding
               <input type="checkbox" placeholder="">Party
@@ -112,17 +111,17 @@
               <input type="checkbox" placeholder="">Workshop
               <input type="checkbox" placeholder="">Concert
             </fieldset>
-          </form>
+          </div>
         </div>
       </div>
       <div id='availability'>
         <h4>What dates are your spaces available?</h4>
-        <form>
+        <div>
           From:
           <input type="date" name="begin">
           To:
           <input type="date" name="end">
-        </form>
+        </div>
       </div>
         <div id="extra-details" class="extra-details">
         <h4>Additional Details</h4>
@@ -167,6 +166,8 @@
     <button onclick="list()">Submit</button>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/host.js"></script>
+    <script src="js/setup.js"></script>
+
     <script src="js/bootstrap.min.js"></script>
     <script src="js/handlebars-v4.0.11.js"></script>
   </body>

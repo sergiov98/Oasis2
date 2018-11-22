@@ -3,6 +3,10 @@ var availableRooms = JSON.parse(localStorage.getItem('availableRooms'));
 var indexes = JSON.parse(localStorage.getItem('indexes'));
 
 function list(){
+  if(JSON.parse(localStorage.getItem('user')) == null){
+    window.alert('Please log in before listing a space');
+    return false;
+  }
   var name = $('#name').val();
   var description = $('#description').val();
   var location = $('#location').val();

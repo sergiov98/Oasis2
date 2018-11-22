@@ -4,7 +4,7 @@ var favIndex = JSON.parse(localStorage.getItem('favIndex'));
 function addtoFavorite(name){
   console.log(name);
   var id = name.replace('Fav','');
-  if(localStorage.getItem("status") == null){
+  if(localStorage.getItem("user") == null){
     window.alert("Please log in before adding items to favorites");
     return false;
   }
@@ -59,7 +59,7 @@ $(document).ready(function() {
     document.getElementById("NoFavs").style.display="inline";
   }
 
-  if(localStorage.getItem('status') != null){
+  if(localStorage.getItem('user') != null){
     if( favorites != null){
       for( var i = 0; i <favorites.length; i=i+1){
         var id = favorites[i]["id"];
@@ -73,14 +73,14 @@ $(document).ready(function() {
 });
 
 function loggedIn(){
-  localStorage.setItem("status", "loggedIn");
+  localStorage.setItem("user", "loggedIn");
 }
 function loggedOut(){
-  localStorage.removeItem("status");
+  localStorage.removeItem("user");
   window.location.href='./favorites.html';
 
 }
-if(localStorage.getItem("status") !== null){
+if(localStorage.getItem("user") !== null){
   //document.getElementById('loginbtn').style.display='none';
   //document.getElementById('signupbtn').style.display='none';
   document.getElementById('logoutbtn').style.display='inline-block';
