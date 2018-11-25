@@ -3,7 +3,7 @@ $(document).ready(function() {
   // Get locations that match filters
   var results =[];
   var filters = JSON.parse(localStorage.getItem('filters'));
-  var availableRooms = JSON.parse(localStorage.getItem('availableRooms'));
+  var availableRooms = JSON.parse(localStorage.getItem('filterRooms'));
 
   for(var i = 0; i < availableRooms.length; i++ ){
 
@@ -13,7 +13,6 @@ $(document).ready(function() {
 
     // see if they match
     if(roomLocation === filterLocation){
-      console.log('match found');
       var max = parseInt(filters[0]['maxCost'].replace(/\,/g,''));
       var roomCost = parseInt(availableRooms[i]['price'].replace(/\,/g,''));
       if( roomCost <= max){

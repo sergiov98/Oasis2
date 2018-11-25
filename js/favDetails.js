@@ -1,6 +1,6 @@
 var favs = document.getElementById('favorites');
-var availableRooms = JSON.parse(localStorage.getItem('availableRooms'));
-var indexes = JSON.parse(localStorage.getItem('indexes'));
+var availableRooms = JSON.parse(localStorage.getItem('filterRooms'));
+var indexes = JSON.parse(localStorage.getItem('filterIndexes'));
 var favorites = JSON.parse(localStorage.getItem('favorites'));
 
 
@@ -26,6 +26,7 @@ $(document).ready(function() {
 
 
 function addtoFavorite(name){
+
   /* Ask user to log in */
   if(localStorage.getItem("user") == null){
     window.alert("Please log in before adding items to favorites");
@@ -83,10 +84,11 @@ function getDetails(id){
   localStorage.setItem('prev',document.URL);
   window.location.href='./details.html';
 }
-
-favs.onclick = function(){
-  if(localStorage.getItem("user") != null){
-    window.location='./myFavorites.html';
-    return false;
+if(favs != null){
+  favs.onclick = function(){
+    if(localStorage.getItem("user") != null){
+      window.location='./myFavorites.html';
+      return false;
+    }
   }
 }

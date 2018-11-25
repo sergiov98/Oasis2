@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+  </head>
+  <body>
+    <div class="nav-bar">
+      <a href="./index.html"><b>Oasis</b></a>
+      <a href="./myFavorites.html">Favorites</a>
+
+      <!-- The logout button -->
+      <button id="btnLogOut"
+              style="display:none"
+              class="signupbtn">Log Out</button>
+    </div>
+
+    <h1 id="name">Name Here</h1>
+
+    <hr />
+
+    <h1 id="noFavs" style="display:none">Go rent some spaces! </h1>
+
+    <script id="results-template" type="text/x-handlebars-template">
+      <div class="event">
+
+        <a href="#" id={{id}} onclick="getDetails(this.id)">
+          <img class="event-image"  src="./images/{{image}}.jpg" />
+        </a>
+        <div class="info">
+          <h3><a id={{id}} href="#" onclick="getDetails(this.id)">{{name}}</a></h3>
+          <p>
+            ${{total}}<br />
+            {{date}}
+          </p>
+          <div>
+            <button id={{id}}Rem onclick="remove(this.id)">Cancel Purchase</button>
+            <button id={{id}} onclick="getMyDetails(this.id)">More Details</button>
+          </div>
+        </div>
+      </div>
+    </script>
+    <div id="first-row" class="event-holder">
+      <h1 id="favHeader">Your upcoming spaces</h1>
+
+    </div>
+    <div id="second-row" class="event-holder">
+
+    </div>
+
+    <hr />
+
+    <script id="remove-template" type="text/x-handlebars-template">
+      <div class="event">
+
+        <a href="#" id={{id}} onclick="getDetails(this.id)">
+          <img class="event-image"  src="./images/{{image}}.jpg" />
+        </a>
+        <div class="info">
+          <h3><a id={{id}} href="#" onclick="getDetails(this.id)">{{name}}</a></h3>
+          <p>
+            ${{price}}<br />
+            {{location}}
+          </p>
+          <div>
+            <button id={{id}}List onclick="removeList(this.id)">Remove from Listed</button>
+            <button id={{id}} onclick="getDetails(this.id)">More Details</button>
+          </div>
+        </div>
+      </div>
+    </script>
+    <div id="third-row" class="event-holder">
+      <h1 id="listHeader">Your listed space</h1>
+    </div>
+
+    <!-- Connecting the js files -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/favDetails.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v4.0.11.js"></script>
+  </body>
+</html>

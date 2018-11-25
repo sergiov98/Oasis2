@@ -79,38 +79,68 @@ window.onclick = function(event) {
     }
 }
 
+
+/* Submit a review */
 function submitted(){
   alert("Thank you for your feedback");
-  localStorage.setItem('reviews',null);
+
+  // Get the name of the location
+  var result = JSON.parse(localStorage.getItem('detailLocation'));
+
+  // Get values in the review
   var text = $('#reviewText').val();
   var stars = $('#reviewStars').val();
 
+  // Get review array and index array
+  var reviewIndex = JSON.parse(localStorage.getItem('reviewIndex'));
   var myReview = {'name':result['name'], 'text':text, 'stars':stars+""};
 
+  // Get list of user reviews
+  var reviews = JSON.parse(localStorage.getItem('reviews'));
+
+  // Check if user has any reviews
   if(reviews != null){
-    reviews.push(myReview);
-    localStorage.setItem('reviews',JSON.stringify(reviews));
+
+    // Check if user has already reviewed this location
+    var i = reviewIndex.indexOf(result['name']);
+
+    // If they have, remove that review
+    if( i != -1){
+      reviews[i] = myReview;
+    } else{
+      // otherwise add it to the review array
+      reviews.push(myReview);
+      reviewIndex.push(result['name']);
+    }
   }else{
     reviews = [myReview];
-    localStorage.setItem('reviews',JSON.stringify(reviews));
+    reviewIndex = [result['name']];
   }
 
-  for(var i = 0; i < stars; i++ ){
-    document.getElementById(i+"-review").classList.add('checked');
-  }
-  document.getElementById("myReviewh3").innerHTML = "text";
-  document.getElementById('myReview').style.display = 'inline';
+  //update local storage
+  localStorage.setItem('reviews',JSON.stringify(reviews));
+  localStorage.setItem('reviewIndex',JSON.stringify(reviewIndex));
+
+  //return to review screen
+  window.location.href="./details.html";
 }
 
 /* Add additional services to cart */
 function added(id){
+
+  // get list of current extras
   var extras = JSON.parse(localStorage.getItem('extras'));
 
+  // Check whether to add service to favorites or remove it
   if(document.getElementById(id).innerHTML === "Add to cart"){
+
+    // get name and price of service
     var price = document.getElementById(id+"Price").innerHTML.replace('$','');
     var addExtra = {'name':id,'price':price};
+
     confirm("Do you wish to add this to cart?");
 
+    // push or create extras depending how many we have
     if(extras != null){
       extras.push(addExtra);
       localStorage.setItem('extras',JSON.stringify(extras));
@@ -120,8 +150,10 @@ function added(id){
       console.log(extras);
       localStorage.setItem('extras',JSON.stringify(extras));
     }
+
+    // Change word
     document.getElementById(id).innerHTML = "Remove from Cart";
-    document.getElementById(id+"Btn").style.backgroundColor="green";
+    document.getElementById(id+"Btn").style.backgroundColor="#8cf442";
   }else{
     var index;
     for(var i = 0; i < extras.length; i++){
@@ -136,9 +168,11 @@ function added(id){
     }
     localStorage.setItem('extras',JSON.stringify(extras));
     document.getElementById(id).innerHTML = "Add to cart";
-    document.getElementById(id+"Btn").style.backgroundColor="white";
+    document.getElementById(id+"Btn").style.backgroundColor=none;
   }
 
+  //return to review screen
+  window.location.href="./details.html";
 }
 
 

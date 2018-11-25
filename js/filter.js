@@ -1,5 +1,24 @@
 $(document).ready(function() {
 
+  var text = localStorage.getItem('event');
+
+  //small change for text
+  if(text === "Corporate"){
+    text = "corporate event";
+  }
+
+  // Get the list of locations that match our event
+  var ar = JSON.parse(localStorage.getItem('availableRooms'));
+  var arIndex = JSON.parse(localStorage.getItem('arIndex'));
+  var indexes = JSON.parse(localStorage.getItem('indexes'));
+
+  var filterRooms = ar[arIndex.indexOf(text.toLowerCase())];
+  var filterIndexes = indexes[arIndex.indexOf(text.toLowerCase())];
+
+  localStorage.setItem('filterRooms',JSON.stringify(filterRooms));
+  localStorage.setItem('filterIndexes',JSON.stringify(filterIndexes));
+
+  document.getElementById('header').innerHTML = "It's time for a " + text.toLowerCase();
   var myFilters = JSON.parse(localStorage.getItem('filters'));
   if(myFilters != null){
     var names = ['location','date', 'hours', 'guest', 'maxCost', 'minCost'];

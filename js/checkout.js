@@ -1,3 +1,5 @@
+var result;
+
 /* Set up site */
 $(document).ready(function() {
 
@@ -37,7 +39,7 @@ $(document).ready(function() {
     }
   }
 
-  var result = {
+  result = {
     'name': preresult['name'],
     'price': preresult['price'],
     'location': preresult['location'],
@@ -50,7 +52,8 @@ $(document).ready(function() {
     'service2':e2,
     'service3':e3,
     'service4':e4,
-    'total': total
+    'total': total,
+    'id':preresult['id']
 
   };
   // compile the template
@@ -84,6 +87,20 @@ function purchase(){
 
   localStorage.setItem('payment', JSON.stringify(paymentInfo));
   localStorage.setItem('extras',null);
+
+  var upcoming = JSON.parse(localStorage.getItem('upcoming'));
+
+  if(upcoming == null){
+    upcoming = [];
+  }
+  if(upcoming.length == 0){
+    upcoming = [result];
+  }else{
+    upcoming.push(result);
+  }
+
+  //store the space in the array
+  localStorage.setItem('upcoming',JSON.stringify(upcoming));
 
   window.location.href='purchased.html';
 }

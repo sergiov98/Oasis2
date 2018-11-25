@@ -8,6 +8,8 @@
   <body>
     <div class="nav-bar" style="text-align:left">
       <a  href="./index.html"><b>Oasis</b></a>
+      <a id="profile" style="none" href="./profile.html">Profile</a>
+
       <!-- The Log-in Modal and button -->
       <button id="loginbtn"
               onclick="document.getElementById('login').style.display='block'"
@@ -100,16 +102,16 @@
         <div id="cat-options">
           <div>
             <fieldset class="host-field" id="first-row">
-              <input type="checkbox" placeholder="">Wedding
-              <input type="checkbox" placeholder="">Party
-              <input type="checkbox" placeholder="">Meeting
-              <input type="checkbox" placeholder="">Corporate Event
+              <input id="wedding" type="checkbox" placeholder="">Wedding
+              <input id="party" type="checkbox" placeholder="">Party
+              <input id="meeting" type="checkbox" placeholder="">Meeting
+              <input id="corporate" type="checkbox" placeholder="">Corporate Event
             </fieldset>
             <fieldset class="host-field" id="second-row">
-              <input type="checkbox" placeholder="">Reunion
-              <input type="checkbox" placeholder="">Photoshoot
-              <input type="checkbox" placeholder="">Workshop
-              <input type="checkbox" placeholder="">Concert
+              <input id="reunion" type="checkbox" placeholder="">Reunion
+              <input id="photo" type="checkbox" placeholder="">Photoshoot
+              <input id="workshop" type="checkbox" placeholder="">Workshop
+              <input id="concert" type="checkbox" placeholder="">Concert
             </fieldset>
           </div>
         </div>
@@ -131,34 +133,20 @@
             step="10" >
           </li>
           <li>
-            <input type="checkbox" placeholder="">Indoor
-            <input type="checkbox" placeholder="">Outdoor
-
-          </li>
-          <li>
             Where are you located?
             <ul style="list-style-type: none; margin-top:0px; padding:0">
               <li>
-                <input type="text" name="add1" placeholder="Address Line 1">
-              </li>
-              <li>
-                <input type="text" name="add2" placeholder="Address Line 2">
-              </li>
-              <li>
                 <input id="location" type="text" name="add1" placeholder="City">
-              </li>
-              <li>
-                <input type="text" name="zip" placeholder="Zip Code">
               </li>
             </ul>
           </li>
           <li>
             Event Contact Information
             <br />
-            Name:
-            <input type="text" name="name">
+            Number:
+            <input id="host-number" type="number" name="number">
             E-mail:
-            <input type="email" name="email">
+            <input id="host-email" type="email" name="email">
           </li>
         </ul>
       </div>

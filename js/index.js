@@ -14,15 +14,13 @@ var secondActivities = [
   {'caption': 'Workshop', 'actImage':'./images/workshop.jpg'}
 ];
 
-
+// Weird function that makes the screen stop scrolling to the center
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 }
 
 /* This function waits until document is ready*/
 $(document).ready(function() {
-
-  console.log('hello world');
 
   // compile the template
   var source   = $("#activities-template").html();
@@ -42,3 +40,10 @@ $(document).ready(function() {
     parentDiv.append(curHtml);
   }
 });
+
+
+// set up filtering function
+function filter(id){
+  localStorage.setItem('event',id);
+  window.location.href="./filter.html";
+}
