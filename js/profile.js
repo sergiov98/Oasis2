@@ -75,9 +75,11 @@ function removeList(id){
   id = id.replace("List","");
 
   console.log(id);
-  confirm("Are you sure you wish to remove this space?")
+  if(!confirm("Are you sure you wish to remove this space?")){
+      return false;
+  }
   for( var i = 0; i < listed.length; i++ ){
-    if( listed[i]['id'] == id){
+    if( listed[i]['id'] === id){
       listed.splice(i,1);
       break;
     }
@@ -87,5 +89,25 @@ function removeList(id){
   localStorage.setItem('listed',JSON.stringify(listed));
   document.getElementById(id+"List").style.display = "none";
 
+}
 
+
+// Removing the location from upcoming events
+function remove(id){
+  id = id.replace("Rem","");
+
+  console.log(id);
+  if(!confirm("Are you sure you wish to remove this space?")){
+      return false;
+  }
+  for( var i = 0; i < upcoming.length; i++){
+    if( upcoming[i]['id'] === id ){
+      upcoming.splice(i,1);
+      break;
+    }
+  }
+
+  // update page and upcoming items
+  localStorage.setItem('upcoming',JSON.stringify(upcoming));
+  document.getElementById(id+"Rem").style.display = "none";
 }

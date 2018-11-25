@@ -138,7 +138,9 @@ function added(id){
     var price = document.getElementById(id+"Price").innerHTML.replace('$','');
     var addExtra = {'name':id,'price':price};
 
-    confirm("Do you wish to add this to cart?");
+    if(!confirm("Do you wish to add this to cart?")){
+      return false;
+    }
 
     // push or create extras depending how many we have
     if(extras != null){

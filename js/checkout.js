@@ -64,6 +64,14 @@ $(document).ready(function() {
   var curData = result;
   var curHtml = template(curData);
   parentDiv.prepend(curHtml);
+
+  // Get user and email field in the document
+  var user = JSON.parse(localStorage.getItem('user'));
+  var em = document.getElementById('host-email');
+  if(user != null){
+    em.value = user['email'];
+  }
+
 });
 
 
@@ -74,7 +82,10 @@ function purchase(){
     window.alert('Please log in before purchasing');
     return false;
   }
-  window.confirm("Are you sure you wish to purchase?");
+  if( !window.confirm("Are you sure you wish to purchase?")){
+    return false;
+  }
+
   var email = $('#email').val();
   var phone = $('#phone').val();
   var card =$('#card').val();

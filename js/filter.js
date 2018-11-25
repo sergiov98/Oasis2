@@ -10,7 +10,7 @@ $(document).ready(function() {
   // Get the list of locations that match our event
   var ar = JSON.parse(localStorage.getItem('availableRooms'));
   var arIndex = JSON.parse(localStorage.getItem('arIndex'));
-  var indexes = JSON.parse(localStorage.getItem('indexes'));
+  var indexes = JSON.parse(localStorage.getItem('indexes')); 
 
   var filterRooms = ar[arIndex.indexOf(text.toLowerCase())];
   var filterIndexes = indexes[arIndex.indexOf(text.toLowerCase())];

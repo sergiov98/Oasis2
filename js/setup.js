@@ -106,11 +106,11 @@ var workshopIndex = ['Luxe', 'liberty'];
 
 // Put them in the bigger array
 var availableRooms = [partyRooms,workshopRooms,reunionRooms,concertRooms, meetingRooms,
-                    corporateRooms, weddingRooms];
+                    corporateRooms, weddingRooms, photoshootRooms];
 var indexes = [partyIndex, workshopIndex, reunionIndex, concertIndex ,
-                      meetingIndex, corporateIndex, weddingIndex];
+                      meetingIndex, corporateIndex, weddingIndex, photoshootIndex];
 
-var arIndex = ['party', 'workshop', 'reunion','concert', 'meeting', 'corporate', 'wedding'];
+var arIndex = ['party', 'workshop', 'reunion','concert', 'meeting', 'corporate event', 'wedding','photoshoot'];
 /* Adding them to our local storage */
 if(localStorage.getItem('availableRooms') == null){
   localStorage.setItem('availableRooms',JSON.stringify(availableRooms));
