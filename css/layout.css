@@ -120,7 +120,7 @@ input[type=text]:focus, input[type=password]:focus {
 .agreebtn, .cancelbtn {
   padding: 14px 20px;
   float: left;
-  width: 50%;
+  width: 100%;
   cursor: pointer;
   color: white;
 }
@@ -152,7 +152,7 @@ input[type=text]:focus, input[type=password]:focus {
   background-color: #fefefe;
   margin: 5% auto 15% auto;
   border: 1px solid #888;
-  width: 60%;
+  width: 50%;
   border-radius:25px;
 }
 
@@ -163,7 +163,7 @@ hr {
 
 .close {
   position: absolute;
-  right: 22%;
+  right: 27%;
   top: 18%;
   font-size: 40px;
   font-weight: bold;
@@ -246,6 +246,14 @@ hr {
 /*details html*/
 .checked{
   color: orange;
+}
+
+.event-info{
+  background-color: white;
+  width: 500px;
+  border: 25px solid black;
+  padding: 25px;
+  margin: 25px;
 }
 
 /* Checkout */

@@ -34,14 +34,18 @@
             <p>Welcome Back</p>
             <hr>
             <b>Email</b> <b style="color:red">*</b><input id="logEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
+            <br />
             <b>Password </b> <b style="color:red">*</b>
             <input id="logPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
             <div class="clearfix">
+              <button id="btnLogIn" type="submit" class="agreebtn">Login</button>
+
               <button type="button"
                       onclick="document.getElementById('login').style.display='none'"
                       class="cancelbtn">Cancel</button>
-              <button id="btnLogIn" type="submit" class="agreebtn">Login</button>
+
+
             </div>
           </div>
       </div>
@@ -68,7 +72,7 @@
           <br />
           <b>Password</b>
           <input id="signPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
-
+          <br />
           <b>Repeat Password</b>
           <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
