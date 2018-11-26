@@ -190,6 +190,10 @@ hr {
   text-align: center;
   padding-bottom: 1%;
 }
+.card-wrapper p {
+  line-height: 2;
+}
+
 
 .card {
   display: inline-block;
