@@ -22,7 +22,7 @@
     <!-- The Log-in Modal and button -->
     <button id="loginbtn"
             onclick="document.getElementById('login').style.display='block'"
-            class="loginbtn">Log in</button>
+            class="loginbtn"><b>Log in</b></button>
     <div id="login" class="modal">
       <!-- The actual content of the log in -->
       <div class="modal-content">
@@ -30,10 +30,10 @@
             <span onclick="document.getElementById('login').style.display='none'"
                   class="close"
                   title="Close Modal">&times;</span>
-            <h1>Oasis</h1>
-            <p>Welcome Back</p>
+            <h1>Welcome Back!</h1>
             <hr>
             <b>Email</b> <b style="color:red">*</b><input id="logEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
+            <br>
             <b>Password </b> <b style="color:red">*</b>
             <input id="logPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 
@@ -50,7 +50,7 @@
     <!-- The sign-up modal and button -->
     <button id="signupbtn"
             onclick="document.getElementById('signup').style.display='block'"
-            class="signupbtn">Sign Up</button>
+            class="signupbtn"><b>Sign Up</b></button>
     <div id="signup" class="modal">
       <span onclick="document.getElementById('signup').style.display='none'"
             class="close"
@@ -59,8 +59,8 @@
       <!-- The actual content -->
       <div class="modal-content">
         <div class="container">
-          <h1>Oasis</h1>
-          <p>Sign up</p>
+          <h1>Join Oasis</h1>
+          <h5>Let's get started!</h5>
           <hr>
           <b>Email</b>
           <input id="signEmail" class="input" type="text" placeholder="Enter Email" name="email" required>
@@ -68,7 +68,6 @@
           <br />
           <b>Password</b>
           <input id="signPassword" class="input" type="password" placeholder="Enter Password" name="psw" required>
-
           <b>Repeat Password</b>
           <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
@@ -86,8 +85,7 @@
     <!-- The logout button -->
     <button id="btnLogOut"
             style="display:none"
-            class="signupbtn">Log Out</button>
-
+            class="logoutbtn">Log Out</button>
 
 
   </div>
@@ -113,7 +111,7 @@
     </div>
   </div>
 
-  <!-- The search bar might be unnecessary -->
+  <!-- The search bar might be unnecessary
   <div class="search" id="search-bar">
     <form action="filter.html">
       <input type="text"
@@ -121,7 +119,8 @@
              size="25px" />
       <input type="submit" />
     </form>
-  </div>
+  </div>-->
+
 
   <!-- The help div -->
   <div id="help" style="padding-left: 3.5%">

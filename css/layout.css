@@ -46,7 +46,7 @@ html, body {
 }
 
 /* nav-bar: log in buttons */
-.signupbtn, .loginbtn {
+.logoutbtn,.signupbtn, .loginbtn {
   width: 10%;
   max-width: 50px;
   height: 20%;
@@ -61,11 +61,18 @@ html, body {
 }
 .signupbtn{
   margin-left: 1%;
+  background-color: #FFC328;
+  color: black;
 }
 .loginbtn{
   margin-right: 1%;
 }
-.signupbtn:hover, .loginbtn:hover {
+.logoutbtn{
+  background-color: #EA1414;
+  margin-right: 1%;
+}
+/*.signupbtn:hover{background-color: none;}*/
+.loginbtn:hover {
   background-color: #3b3e42;
 }
 
@@ -126,10 +133,10 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .agreebtn{
-  background-color: #74c425;
+  background-color: #419B21;
 }
 .cancelbtn {
-  background-color: rgb(255, 90, 95);
+  background-color: #EA1414;
 }
 
 .container {
