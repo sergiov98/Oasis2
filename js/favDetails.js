@@ -86,9 +86,10 @@ function getDetails(id){
 }
 if(favs != null){
   favs.onclick = function(){
-    if(localStorage.getItem("user") != null){
-      window.location='./myFavorites.html';
-      return false;
+    if(localStorage.getItem("user") == null){
+      window.alert('Please log in before adding favorites');
+    }else{
+      window.location='./myFavorites.html'
     }
   }
 }
